@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa:400,700');
+body {
+    font-family: 'Comfortaa', cursive, serif;    
+    padding: 0 1vw;
+    font-size: 18px;
+    font-size: calc(18px + 0.4vw);    
+}
+
+
+h1, h2, h3, h4, h5, h6, p, small {
+    margin-top: 0.2em;
+    margin-bottom: 0.3em;
+    max-width: 28em;
+}
+
+p { margin-bottom: 0.8em; }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: [header] 2em [body] auto [footer] auto [end];
+  grid-gap: 1em;
+}
+
+
+.grid-header {
+  grid-row: header;
+  grid-column: 1 / span 12;
+}
+
+
