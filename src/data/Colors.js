@@ -1,9 +1,11 @@
 const Colors = [
     "brand": {
-        main: "#1234567"
+        main: "#1234567",
+        contrast: "#FFFFFF"
     },
     "primary": {
-        main: "#3456721"
+        main: "#3456721",
+        contrast: "#000000"
     },
     "black": {
         main: "#ffffff"
