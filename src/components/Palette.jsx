@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 // COMPONENTS
 import Color from './Color.jsx'; 
-import EditColor from './EditColor.jsx'; 
 
 // UTILITIES
 import invertColor from '../utils/invertColor.js';
@@ -41,24 +40,30 @@ class App extends Component {
         editing: false
     }
 
-  changeColor = (colorName, colorVariant) => {
-    console.info("Changing color: ", colorName, colorVariant );
-    let values = {  colorName, colorVariant };
-    values.currentValue = this.state.colors.find(color => (colorName === color.name))[colorVariant];
-    this.setState({ editValues:values });
-    this.setState({ editing:true });
-  }
-  
   handleColorChange = (colorName, colorVariant, colorValue) => {
     this.setState({editing: false});
 
     let newColorState = this.state.colors;    
     const index = newColorState.findIndex(color=>(color.name === colorName));
     let tempColor = newColorState[index];
-    // insert the correct values here, in TEMPCOLOR!
+        tempColor[colorVariant] = colorValue;
 
-    console.log(tempColor);
-  } 
+    newColorState.splice(index, 1, tempColor);
+
+    this.setState({colors: newColorState});
+  }
+
+  handleLock = (colorName, colorVariant, colorValue) => {
+    console.log("LOCKING: ",colorName, colorVariant, colorValue);
+  }
+
+  handleDrag = (colorName, colorVariant, colorValue) => {
+    console.log("LOCKING: ",colorName, colorVariant, colorValue);
+  }
+
+  handleDrop = (colorName, colorVariant, colorValue) => {
+    console.log("LOCKING: ",colorName, colorVariant, colorValue);
+  }
 
   componentDidMount() {
     let newColors = [];
@@ -80,8 +85,7 @@ class App extends Component {
       return (
         <div className="Palette grid-container">
           <h3 className="grid-header">Palette</h3>
-          {this.state.colors.map(color=><Color changeColor={this.changeColor} name={color.name} value={color.value} contrast={color.contrast} dark={color.dark} light={color.light} key={color.name}/>)}
-          {this.state.editing ? <EditColor editValues={this.state.editValues} className="edit-window" handleColorChange={this.handleColorChange} />: ''}
+          {this.state.colors.map(color=><Color handleColorChange={this.handleColorChange} name={color.name} value={color.value} contrast={color.contrast} dark={color.dark} light={color.light} key={color.name}/>)}
         </div>
       );
     }
