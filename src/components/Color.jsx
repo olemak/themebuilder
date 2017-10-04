@@ -14,7 +14,7 @@ class Color extends Component {
       <div>
         <div className="Color grid-body grid-container">
             <h3 className="name">{this.props.name}</h3>
-            <div onClick={event=>{this.ColorPicker(event, "umm...")}} className="value" style={{backgroundColor:this.props.value}}>
+            <div onClick={event=>{this.ColorPicker(this.props.name, "value")}} className="value" style={{backgroundColor:this.props.value}}>
               <FaEdit onClick={this.props.editColor} color={this.props.contrast ? this.props.contrast : "#FFFFFF"}/>
               <FaAnchor color={this.props.contrast ? this.props.contrast : "#FFFFFF"} />
             </div>

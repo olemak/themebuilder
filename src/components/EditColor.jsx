@@ -5,9 +5,13 @@ import './EditColor.css';
 class EditColor extends Component {
     render() {
         return (
-            <div class="edit-color edit-color__outer">
-                <div class="edit-color__inner">
+            <div className="edit-color edit-color__outer">
+                <div className="edit-color__inner">
                     <h1>Editing...</h1>
+                    <h2>{this.props.editValues.colorName}</h2>
+                    <h2>{this.props.editValues.colorVariant}</h2>
+                    <h2>{this.props.editValues.currentValue}</h2>
+                    <input type="color" value="this.props.editValues.currentValue" onChange={event => {this.props.handleColorChange(this.props.editValues.colorName,this.props.editValues.colorVariant,event.target.value)}}/>
                 </div>
             </div>
         );

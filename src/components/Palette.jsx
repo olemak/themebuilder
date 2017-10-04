@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+
+// COMPONENTS
 import Color from './Color.jsx'; 
 import EditColor from './EditColor.jsx'; 
 
+// UTILITIES
 import invertColor from '../utils/invertColor.js';
 import shadeColor from '../utils/shadeColor.js';
 
@@ -34,16 +37,29 @@ class App extends Component {
             name: "gray",
             value: "#9099A2"
           },
-        ], editing: true
+        ], 
+        editing: false
     }
 
-  changeColor(colorName, colorVariant) {
+  changeColor = (colorName, colorVariant) => {
     console.info("Changing color: ", colorName, colorVariant );
-    let values = {  colorName, colorVariant }
+    let values = {  colorName, colorVariant };
+    values.currentValue = this.state.colors.find(color => (colorName === color.name))[colorVariant];
     this.setState({ editValues:values });
     this.setState({ editing:true });
   }
   
+  handleColorChange = (colorName, colorVariant, colorValue) => {
+    this.setState({editing: false});
+
+    let newColorState = this.state.colors;    
+    const index = newColorState.findIndex(color=>(color.name === colorName));
+    let tempColor = newColorState[index];
+    // insert the correct values here, in TEMPCOLOR!
+
+    console.log(tempColor);
+  } 
+
   componentDidMount() {
     let newColors = [];
     this.state.colors.map(color=>{
@@ -57,8 +73,6 @@ class App extends Component {
       newColors.push(newColor);      
       return true;
     })
-    console.log(newColors)
-
     this.setState({colors:newColors});
   }
 
@@ -67,7 +81,7 @@ class App extends Component {
         <div className="Palette grid-container">
           <h3 className="grid-header">Palette</h3>
           {this.state.colors.map(color=><Color changeColor={this.changeColor} name={color.name} value={color.value} contrast={color.contrast} dark={color.dark} light={color.light} key={color.name}/>)}
-          {this.state.editing ? <EditColor editValues={this.state.editValues} className="edit-window"/>: ''}
+          {this.state.editing ? <EditColor editValues={this.state.editValues} className="edit-window" handleColorChange={this.handleColorChange} />: ''}
         </div>
       );
     }
