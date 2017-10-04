@@ -13,31 +13,26 @@ class App extends Component {
     state = {
       colors: [
           {
-            name: "brand",
+            name: "brand", // main, mono, function
             value: "#123456",
-          },
-          {
-            name: "main",
-            value: "#96858F",
-          },
-          {
-            name: "support",
-            value: "#6D7993",
-          },
-          {
-            name: "black",
-            value: "#000033",
-          },
-          {
-            name: "white",
-            value: "#D5D5D5",
-          },
-          {
-            name: "gray",
-            value: "#9099A2"
-          },
-        ], 
-        editing: false
+            contrast: "#EDCBA9",
+            dark: "#0d2740",
+            light: "#16416b",
+            description:"The brand colors are not neccessarily the main colors of the web site.",
+            variants: {
+              primary: {
+                displayName: "",
+                id: "COLOR__BRAND--PRIMARY",
+                value: "#123456",
+                locked: false,
+                subscribers: []
+              }
+            }
+          }, {
+            name: "main", // ... mono, function
+            value: "#345612"
+        }
+        ] 
     }
 
   handleColorChange = (colorName, colorVariant, colorValue) => {
@@ -60,9 +55,15 @@ class App extends Component {
   handleDrag = (colorName, colorVariant, colorValue) => {
     console.log("LOCKING: ",colorName, colorVariant, colorValue);
   }
-
+  
   handleDrop = (colorName, colorVariant, colorValue) => {
     console.log("LOCKING: ",colorName, colorVariant, colorValue);
+  }
+  
+  updateDependentColors = (color) => {
+    if (color.dependents) {
+      color.dependents
+    }
   }
 
   componentDidMount() {
