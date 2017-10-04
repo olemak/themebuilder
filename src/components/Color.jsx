@@ -1,28 +1,33 @@
 import React, { Component } from 'react';
+
 import FaEdit from 'react-icons/lib/fa/pencil';
 import FaAnchor from 'react-icons/lib/fa/anchor';
+import FaLocked from 'react-icons/lib/fa/lock';
+import FaUnlocked from 'react-icons/lib/fa/unlock';
+
 import './Color.css';
 
 class Color extends Component {
 
-  ColorPicker(event, sound){
-    this.props.changeColor(event, sound);
+  ColorPicker(event, colorName){
+    this.props.changeColor(event.target.value, colorName);
   }
 
   render() {
     return (
-      <div>
         <div className="Color grid-body grid-container">
-            <h3 className="name">{this.props.name}</h3>
-            <div onClick={event=>{this.ColorPicker(this.props.name, "value")}} className="value" style={{backgroundColor:this.props.value}}>
-              <FaEdit onClick={this.props.editColor} color={this.props.contrast ? this.props.contrast : "#FFFFFF"}/>
+            <h3 className="color__name">{this.props.name}</h3>
+            <div className="color__value" style={{backgroundColor:this.props.value}}>
+              <input className="color__colorpicker" id={"colorPicker-"+this.props.name} type="color" value={this.props.value} onChange={event => {this.props.handleColorChange(this.props.name, "value", event.target.value)}} />
+              <label htmlFor={"colorPicker-"+this.props.name}><FaEdit color={this.props.contrast ? this.props.contrast : "#FFFFFF"}/></label>
               <FaAnchor color={this.props.contrast ? this.props.contrast : "#FFFFFF"} />
+              {this.props.locked ? <FaUnlocked color={this.props.contrast ? this.props.contrast : "#FFFFFF"} /> : <FaUnlocked color={this.props.contrast ? this.props.contrast : "#FFFFFF"} />}
+
             </div>
-            <div className="contrast" style={{backgroundColor:this.props.contrast}} />
-            <div className="dark" style={{backgroundColor:this.props.dark}} />
-            <div className="light" style={{backgroundColor:this.props.light}} />
+            <div className="color__contrast" style={{backgroundColor:this.props.contrast}} />
+            <div className="color__dark" style={{backgroundColor:this.props.dark}} />
+            <div className="color__light" style={{backgroundColor:this.props.light}} />
         </div>
-      </div>
     );
   }
 }

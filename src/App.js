@@ -8,7 +8,6 @@ class App extends Component {
       <div className="App">
         <h2>Themebuilder</h2>
         <Palette />
-        <hr />
       </div>
     );
   }
