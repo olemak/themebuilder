@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import FaBeer from 'react-icons/lib/fa/beer';
+import FaEdit from 'react-icons/lib/fa/pencil';
+import FaAnchor from 'react-icons/lib/fa/anchor';
 import './Color.css';
 
 class Color extends Component {
@@ -10,15 +11,17 @@ class Color extends Component {
 
   render() {
     return (
-      <div className="Color grid-body grid-container">
-          <h3 className="name">{this.props.name}</h3>
-          <div onClick={event=>{this.ColorPicker(event, "umm...")}} className="value" style={{backgroundColor:this.props.value}}>
-            <FaBeer color={this.props.contrast ? this.props.contrast : "#FFFFFF"}/>
-
-          </div>
-          <div className="contrast" style={{backgroundColor:this.props.contrast}} />
-          <div className="dark" style={{backgroundColor:this.props.dark}} />
-          <div className="light" style={{backgroundColor:this.props.light}} />
+      <div>
+        <div className="Color grid-body grid-container">
+            <h3 className="name">{this.props.name}</h3>
+            <div onClick={event=>{this.ColorPicker(event, "umm...")}} className="value" style={{backgroundColor:this.props.value}}>
+              <FaEdit onClick={this.props.editColor} color={this.props.contrast ? this.props.contrast : "#FFFFFF"}/>
+              <FaAnchor color={this.props.contrast ? this.props.contrast : "#FFFFFF"} />
+            </div>
+            <div className="contrast" style={{backgroundColor:this.props.contrast}} />
+            <div className="dark" style={{backgroundColor:this.props.dark}} />
+            <div className="light" style={{backgroundColor:this.props.light}} />
+        </div>
       </div>
     );
   }

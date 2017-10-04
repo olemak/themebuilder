@@ -1,0 +1,19 @@
+.edit-color.edit-color__outer {
+    background-color: rgba(0,0,0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+.edit-color__inner {
+    margin: 20vw;
+    border: 5px solid gray;
+    border-radius: 12px;
+    min-height: 50vh;
+    background-color: white;
+    padding: 1em;
+}
+
