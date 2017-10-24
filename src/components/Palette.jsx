@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 // COMPONENTS
 import Color from './Color.jsx'; 
+import FaPlus from 'react-icons/lib/fa/plus';
 
 // UTILITIES
 import invertColor from '../utils/invertColor.js';
@@ -35,6 +36,16 @@ class App extends Component {
         ] 
     }
 
+  addColor = () => {
+    const newColor = {
+        name: "new",
+        value: "#333333"
+    };
+    let colors = this.state.colors;
+        colors.push(newColor);
+      this.setState({colors: colors})
+  }
+
   handleColorChange = (colorName, colorVariant, colorValue) => {
     this.setState({editing: false});
 
@@ -53,11 +64,11 @@ class App extends Component {
   }
 
   handleDrag = (colorName, colorVariant, colorValue) => {
-    console.log("LOCKING: ",colorName, colorVariant, colorValue);
+    console.log("DRAGGING: ",colorName, colorVariant, colorValue);
   }
   
   handleDrop = (colorName, colorVariant, colorValue) => {
-    console.log("LOCKING: ",colorName, colorVariant, colorValue);
+    console.log("DROPPING: ",colorName, colorVariant, colorValue);
   }
   
   updateDependentColors = (color) => {
@@ -84,9 +95,10 @@ class App extends Component {
 
   render() {
       return (
-        <div className="Palette grid-container">
+        <div className="Palette">
           <h3 className="grid-header">Palette</h3>
           {this.state.colors.map(color=><Color handleColorChange={this.handleColorChange} name={color.name} value={color.value} contrast={color.contrast} dark={color.dark} light={color.light} key={color.name}/>)}
+          <FaPlus onClick={()=>{this.addColor()}}/>
         </div>
       );
     }

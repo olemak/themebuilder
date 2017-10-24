@@ -1,6 +1,7 @@
 .Color {
     grid-column: auto / span 4;
     height: 18vmax;
+    min-height: 200px;    
     grid-gap: 0.2em !important;
     min-width: 320px;
 }
