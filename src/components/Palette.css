@@ -1,7 +1,10 @@
 .Palette {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column nowrap;
 }
+
+.palette__header {
+flex: 1 1 100%}
 
 .edit-color {
     position: static;

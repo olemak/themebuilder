@@ -1,3 +1,5 @@
+/* eslint no-unused-expressions: 0 */
+
 import React, { Component } from 'react';
 
 // COMPONENTS
@@ -18,17 +20,7 @@ class App extends Component {
             value: "#123456",
             contrast: "#EDCBA9",
             dark: "#0d2740",
-            light: "#16416b",
-            description:"The brand colors are not neccessarily the main colors of the web site.",
-            variants: {
-              primary: {
-                displayName: "",
-                id: "COLOR__BRAND--PRIMARY",
-                value: "#123456",
-                locked: false,
-                subscribers: []
-              }
-            }
+            light: "#16416b"
           }, {
             name: "main", // ... mono, function
             value: "#345612"
@@ -37,9 +29,13 @@ class App extends Component {
     }
 
   addColor = () => {
+    const newColorValue = "#333333";
     const newColor = {
-        name: "new",
-        value: "#333333"
+        name: "color_" + (this.state.colors.length + 1),
+        value: newColorValue,
+        contrast: invertColor(newColorValue),
+        light: shadeColor(newColorValue, 25),
+        dark: shadeColor(newColorValue, -25),
     };
     let colors = this.state.colors;
         colors.push(newColor);
@@ -59,8 +55,18 @@ class App extends Component {
     this.setState({colors: newColorState});
   }
 
-  handleLock = (colorName, colorVariant, colorValue) => {
-    console.log("LOCKING: ",colorName, colorVariant, colorValue);
+  handleLock = colorName => {
+    console.log("LOCKING: ",colorName);
+
+    let newState = this.state.colors;    
+    const index = newState.findIndex(color=>(color.name === colorName));
+    let tempColor = newState[index];
+        tempColor.locked = !tempColor.locked;
+
+    newState.splice(index, 1, tempColor);
+
+    this.setState({colors: newState});
+
   }
 
   handleDrag = (colorName, colorVariant, colorValue) => {
@@ -95,11 +101,11 @@ class App extends Component {
 
   render() {
       return (
-        <div className="Palette">
-          <h3 className="grid-header">Palette</h3>
-          {this.state.colors.map(color=><Color handleColorChange={this.handleColorChange} name={color.name} value={color.value} contrast={color.contrast} dark={color.dark} light={color.light} key={color.name}/>)}
+        <section className="Palette">
+          <h3 className="palette__header">Palette</h3>
+          {this.state.colors.map(color=><Color handleColorChange={this.handleColorChange} handleLock={this.handleLock} name={color.name} value={color.value} contrast={color.contrast} dark={color.dark} light={color.light} locked={color.locked} key={color.name}/>)}
           <FaPlus onClick={()=>{this.addColor()}}/>
-        </div>
+        </section>
       );
     }
 }

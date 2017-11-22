@@ -18,8 +18,8 @@ p { margin-bottom: 0.8em; }
 .grid-container {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: [header] 2em [body] auto [footer] auto [end];
   grid-gap: 1em;
+  grid-template-rows: [header] 2em [body] auto [footer] auto [end];
 }
 
 
