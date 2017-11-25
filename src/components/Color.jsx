@@ -13,6 +13,7 @@ class Color extends Component {
                   index={variation}
                   color={this.props.color}
                   handleLock={this.props.handleLock}
+                  handleColorChange = {this.props.handleColorChange}
                   key={`${this.props.color.name}-${variation}`}
                 />
             )}
