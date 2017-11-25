@@ -16,26 +16,30 @@ grid-row: header;
 grid-column: 1 / end;
 }
 
-.color__value {
-    grid-column: 1 / 5;
-    grid-row: 2 / 4;
+.color {
     display: flex;
     justify-content: space-between;
     align-content: flex-end;
     padding: 0.4em;
 }
 
-.color__contrast {
+
+.color--main {
+    grid-column: 1 / 5;
+    grid-row: 2 / 4;
+}
+
+.color--contrast {
     grid-column: 5 / 9;
     grid-row: 2 / 4;
 }
 
-.color__dark {
+.color--dark {
     grid-column: 9 / end;
     grid-row: 2 / 3;
 }
 
-.color__light {
+.color--light {
     grid-column: 9 / end;
     grid-row: 3 / 4;
 }
