@@ -32,7 +32,8 @@ class App extends Component {
     const newColorValue = "#333333";
     const newColor = {
         name: "color_" + (this.state.colors.length + 1),
-        value: newColorValue,
+        locked: [],
+        main: newColorValue,
         contrast: invertColor(newColorValue),
         light: shadeColor(newColorValue, 25),
         dark: shadeColor(newColorValue, -25),
