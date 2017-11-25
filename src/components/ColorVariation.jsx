@@ -17,7 +17,7 @@ class ColorVariation extends Component {
 
       return (
         <div style={{backgroundColor:colorValue}} className={`color color--${this.props.index}`}>
-              <input className="color__colorpicker" id={id} type="color" value={colorValue} onChange={event => {this.props.handleColorChange(this.props.index, "value", event.target.value)}} disabled={this.props.locked}/>
+              <input className="color__colorpicker" id={id} type="color" value={colorValue} onChange={event => {this.props.handleColorChange(this.props.index, "value", event.target.value)}} disabled={(this.props.color.locked && this.props.color.locked.indexOf(this.props.index) > -1)} />
               <label htmlFor={id}>
                 <FaEdit color={this.props.index === "contrast" ? this.props.color.main : this.props.color.contrast}/>
               </label>
