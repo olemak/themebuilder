@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-
 import { getContrast } from "../utils/contrastRatio.js";
-
 import FaEdit from 'react-icons/lib/fa/pencil';
-import FaLocked from 'react-icons/lib/fa/lock';
-import FaUnlocked from 'react-icons/lib/fa/unlock';
 
 class ColorVariation extends Component {
 

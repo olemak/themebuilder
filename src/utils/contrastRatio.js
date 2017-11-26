@@ -10,7 +10,6 @@ function hexToRgb (hex) {
     return rgbArray;    
 }
 
-
 function luminance (rgb) {
     const a = rgb.map(colorValue => {
         colorValue /= 255;
