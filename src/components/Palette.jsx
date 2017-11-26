@@ -11,14 +11,12 @@ import invertColor from '../utils/invertColor.js';
 import shadeColor from '../utils/shadeColor.js';
 import addColor from '../utils/addColor.js';
 import handleColorChange from '../utils/handleColorChange.js';
-import handleLock from '../utils/handleLock.js';
 
 import './Palette.css';
 
 class App extends Component {
   addColor = addColor.bind(this);
   handleColorChange = handleColorChange.bind(this);
-  handleLock = handleLock.bind(this);
 
     state = {
       colors: [
@@ -37,22 +35,6 @@ class App extends Component {
           }
         ]
     }
-
-
-
-  handleDrag = (colorName, colorVariant, colorValue) => {
-    console.log("DRAGGING: ",colorName, colorVariant, colorValue);
-  }
-  
-  handleDrop = (colorName, colorVariant, colorValue) => {
-    console.log("DROPPING: ",colorName, colorVariant, colorValue);
-  }
-  
-  updateDependentColors = (color) => {
-    if (color.dependents) {
-      color.dependents
-    }
-  }
 
   componentDidMount() {
     let newColors = [];
@@ -75,8 +57,8 @@ class App extends Component {
       return (
         <section className="Palette">
           <h3 className="palette__header">Palette</h3>
-          {this.state.colors.map(color=><Color handleColorChange={this.handleColorChange} handleLock={this.handleLock} color={color} key={color.name}/>)}
-          <FaPlus onClick={()=>{this.addColor()}}/>
+          {this.state.colors.map(color=><Color handleColorChange={this.handleColorChange} color={color} key={color.name}/>)}
+          <FaPlus className="palette__add" onClick={()=>{this.addColor()}}/>
         </section>
       );
     }

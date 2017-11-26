@@ -22,11 +22,6 @@ class ColorVariation extends Component {
             <label htmlFor={id}>
                 <FaEdit color={this.props.index === "contrast" ? this.props.color.main : this.props.color.contrast}/>
             </label>
-            { (this.props.index === "main" ?
-            this.props.color.locked && this.props.color.locked.indexOf(this.props.index) > -1 
-                ? <FaLocked color={this.props.index === "contrast" ? this.props.color.main : this.props.color.contrast} onClick={() => this.props.handleLock(this.props.color.name, this.props.index)} /> 
-                : <FaUnlocked color={this.props.index === "contrast" ? this.props.color.main : this.props.color.contrast} onClick={() => this.props.handleLock(this.props.color.name, this.props.index)} />
-            : "")}
 
             {this.props.index === "contrast" && getContrast(this.props.color.main, this.props.color.contrast) < 4.5 ? 
                 <p className="color__warning color__warning--contrast">{(getContrast(this.props.color.main, this.props.color.contrast) < 3.5 ? "Alert! Contrast too low: " : "Warning - low contrast: " )}{getContrast(this.props.color.main, this.props.color.contrast)}</p>
