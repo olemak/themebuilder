@@ -76,7 +76,7 @@ class App extends Component {
         <section className="Palette">
           <h3 className="palette__header">Palette</h3>
           {this.state.colors.map(color=><Color handleColorChange={this.handleColorChange} handleLock={this.handleLock} color={color} key={color.name}/>)}
-          <FaPlus onClick={()=>{addColor()}}/>
+          <FaPlus onClick={()=>{this.addColor()}}/>
         </section>
       );
     }
