@@ -51,7 +51,9 @@ class App extends Component {
         <section className="Palette">
           <h3 className="palette__header">Palette</h3>
           {this.state.colors.map(color=><Color handleColorChange={this.handleColorChange} color={color} key={color.name}/>)}
-          <FaPlus className="palette__add" onClick={()=>{this.addColor()}}/>
+          <button className="palette__add" onClick={()=>{this.addColor()}}>
+            <FaPlus /> Add Color
+          </button>
         </section>
       );
     }

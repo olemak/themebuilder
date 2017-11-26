@@ -12,5 +12,11 @@
 }
 
 .palette__add {
-    margin-top: 0.5em;
+    margin: 1.5em;
+    flex: 1 1 100%;
+    text-align: center;
+    padding: 1em;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
 }
