@@ -30,5 +30,11 @@ p { margin-bottom: 0.8em; }
 
 .header__nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between;  
+}
+
+@media (min-width: 640px) {
+  .header__nav {
+    padding-right: 0.2em;
+  }
 }

@@ -53,5 +53,6 @@
 @media (min-width: 640px) {
     .mini-aspects {
         margin-top: 74px;
+        margin-right: 0.5em;
     }
 }
