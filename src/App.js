@@ -1,35 +1,26 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import Dashboard from './components/Dashboard.jsx';
-import Palette from './components/Palette.jsx';
-import Aspect from './components/Aspect.jsx';
-import Fonts from './components/Fonts.jsx';
-import Typography from './components/Typography.jsx';
+import routes from './routes/routes.js'
 
 import './App.css';
 
 class App extends Component {
+
+  
   render() {
     return (
       <Router>
-        <div className="App">
+        <div className="Themebuilder">          
           <header className="Header">
-          <h2>Themebuilder | </h2>
-          <nav className="header__nav">
-            <Link to="/">Start</Link>
-            <Link to="/palette">Colors</Link>
-            <Link to="/aspect">Aspect</Link>
-            <Link to="/fonts">Fonts</Link>
-            <Link to="/typography">Typography</Link>
-          </nav>
+            <h2>Themebuilder | {routes().map(route=><Route exact={route.exact} path={route.path} component={()=><span> {route.name}</span>} key={`header-${route.name}`} />)}</h2>
+            <nav className="header__nav">
+              { routes().map(route=><Link to={route.path} key={`link-${route.name}`}>{route.name}</Link>) }
+            </nav>
           </header>
+
           <main>
-            <Route exact path="/" component={Dashboard} />
-            <Route exact path="/palette" component={Palette} />
-            <Route exact path="/aspect" component={Aspect} />
-            <Route exact path="/fonts" component={Fonts} />
-            <Route exact path="/typography" component={Typography} />
-          </main>
+            { routes().map(route=><Route exact={route.exact} path={route.path} key={`main-route-${route.name}`} component={route.component()}/>) }
+          </main>          
         </div>
       </Router>
     );
