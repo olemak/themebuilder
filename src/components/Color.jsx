@@ -8,7 +8,7 @@ class Color extends Component {
     return (
         <div className="Color grid-body grid-container">
             <h3 className="color__name">{this.props.color.name}</h3>
-            { Object.keys(this.props.color).splice(2).map(variation=>
+            { Object.keys(this.props.color).splice(1).map(variation=>
                 <ColorVariation 
                   index={variation}
                   color={this.props.color}

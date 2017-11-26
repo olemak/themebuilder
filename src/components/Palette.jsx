@@ -27,12 +27,6 @@ class App extends Component {
             name: "primary",
             main: "#345612"
         }
-        ],
-        colorInheritance: [
-          {
-            parent: {color: "brand", variation: "main"},
-            child:  {color: "primary", variation: "contrast"}
-          }
         ]
     }
 
@@ -41,7 +35,6 @@ class App extends Component {
     this.state.colors.map(color=>{
       let newColor = {
         name: color.name,
-        locked: [],
         main: color.main,
         contrast: invertColor(color.main),
         light: shadeColor(color.main, 25),

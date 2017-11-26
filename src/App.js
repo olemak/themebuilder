@@ -30,9 +30,8 @@ class App extends Component {
             <Route exact path="/fonts" component={Fonts} />
             <Route exact path="/typography" component={Typography} />
           </main>
-
-      </div>
-        </Router>
+        </div>
+      </Router>
     );
   }
 }
