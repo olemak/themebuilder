@@ -23,16 +23,19 @@ class App extends Component {
     state = {
       colors: [
           {
-            name: "brand", // main, mono, function,
+            name: "brand",
             main: "#123456",
-            contrast: "#EDCBA9",
-            dark: "#0d2740",
-            light: "#16416b"
           }, {
-            name: "primary", // ... mono, function,
+            name: "primary",
             main: "#345612"
         }
-        ] 
+        ],
+        colorInheritance: [
+          {
+            parent: {color: "brand", variation: "main"},
+            child:  {color: "primary", variation: "contrast"}
+          }
+        ]
     }
 
 
