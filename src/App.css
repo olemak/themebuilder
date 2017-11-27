@@ -30,7 +30,12 @@ p { margin-bottom: 0.8em; }
 
 .header__nav {
   display: flex;
-  justify-content: space-between;  
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 0 -0.5em;
+}
+.header__nav a {
+  padding: 0.2em 0.5em;
 }
 
 @media (min-width: 640px) {

@@ -8,6 +8,7 @@
 
 .palette__header {
     flex: 1 1 100%;
+    flex-flow: row wrap;
     min-width: 100%;
 }
 
