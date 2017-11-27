@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 
 class Fonts extends Component {
     state = {
-        selectedFonts: [],
+        selectedFonts: [{
+            family:     "Antic",
+            variants:   ["regular"],
+            subsets:    ["latin"],
+            files:      {"regular": "http://themes.googleusercontent.com/static/fonts/antic/v4/hEa8XCNM7tXGzD0Uk0AipA.ttf"}
+        }],
         googleFontList: [
             {family: ""}
         ]
@@ -18,20 +23,34 @@ class Fonts extends Component {
     }
     
     fontSelect = ( event ) => {
-        if (this.state.googleFontList.find(font=>font.family === event.target.value)) {
-            console.log(event.target.value);
-            //DO THINGS ON FONT SELECTION HERE
+        let newSelectedFont = this.state.googleFontList.find(font=>font.family === event.target.value); 
+        
+        //DO THINGS ON FONT SELECTION HERE
+        if (newSelectedFont) {
+            let previouslySelectedFonts = this.state.selectedFonts;
+                previouslySelectedFonts.splice(event.target.id, 1, newSelectedFont);
+            this.setState({selectedFonts: previouslySelectedFonts});
         }
+
     }
 
     render() {
         return (
             <div className="Fonts">
-                <h3 className="fonts__header">Fonts</h3>
-                <input list="googleFonts" onInput={this.fontSelect} name="font" />
+                <h4 className="fonts__header">Select fonts</h4>
+                <p>You must know what font you want. Check <a href="//google.fonts/">Google Fonts</a> for details on available fonts.</p>
                 <datalist id="googleFonts" >
-                  {this.state.googleFontList.map(font=><option value={font.family} key={font.family}/>)}
+                    {this.state.googleFontList.map(font=><option value={font.family} key={font.family}/>)}
                 </datalist>
+                
+                {this.state.selectedFonts.map((font, i)=><div key={`font-input-${i}`}>
+                    <input list="googleFonts" onInput={this.fontSelect} id={i} name="font" />
+                    <div className="font__details">
+                        <h4>{font.family}</h4>
+                        <h5>Select Variants</h5>
+                        {font.variants.map(variant=><p key={`${font.family}-${variant}`}>{variant}</p>)}
+                    </div>
+                </div>)}
             </div>
         );
     }
