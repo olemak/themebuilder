@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './fonts.css';
+
 class Fonts extends Component {
     state = {
         selectedFonts: [{
@@ -31,7 +33,11 @@ class Fonts extends Component {
                 previouslySelectedFonts.splice(event.target.id, 1, newSelectedFont);
             this.setState({selectedFonts: previouslySelectedFonts});
         }
+    }
 
+    fontVariantSelect = event => {
+        console.dir(event.target);
+        console.log(event.target.name, event.target.value, event.target.checked);
     }
 
     render() {
@@ -48,7 +54,10 @@ class Fonts extends Component {
                     <div className="font__details">
                         <h4>{font.family}</h4>
                         <h5>Select Variants</h5>
-                        {font.variants.map(variant=><p key={`${font.family}-${variant}`}>{variant}</p>)}
+                        {font.variants.map(variant=><div className="font-variant__wrapper" key={`${font.family}-${variant}`}>
+                            <input className="font-variant__input" type="checkbox" onChange={this.fontVariantSelect} name={font.family} value={variant} />
+                            <p className="font-variant__example" key={`${font.family}-${variant}`}>{variant}</p>
+                            </div>)}
                     </div>
                 </div>)}
             </div>

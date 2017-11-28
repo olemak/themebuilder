@@ -1,0 +1,23 @@
+.Fonts {
+
+}
+
+.font {
+
+}
+
+.font-variant__wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.font-variant__example {
+    flex: 1 1 70%;
+}
+
+
+.font-variant__input {
+    height: 2em;
+    width: 2em;
+    border-radius: 50%;
+}
