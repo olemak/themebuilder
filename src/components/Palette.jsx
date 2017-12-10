@@ -39,7 +39,7 @@ class Palette extends Component {
       return (
         <section className="Palette">
           <h3 className="palette__header">Palette</h3>
-          {this.props.colors.map(color=><Color handleColorChange={()=>{console.info("Replace with real colorchange function/Reducer/action/whatevs")}} color={color} key={color.name}/>)}
+          {this.props.colors.map((color, index)=><Color handleColorChange={this.props.changeColor} index={index} color={color} key={color.name}/>)}
         </section>
       );
     }

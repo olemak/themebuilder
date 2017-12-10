@@ -1,8 +1,7 @@
 /* eslint no-unused-expressions: 0 */
 import { connect } from 'react-redux'
-import React, { Component } from 'react';
 
-import {STORE_COLOR, storeColor} from '../actions/actions'
+import {CHANGE_COLOR, changeColor} from '../actions/actions'
 
 // COMPONENTS
 import Palette from './Palette.jsx';
@@ -16,7 +15,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     changeColor: (index, variation, value) => {
-      dispatch(storeColor(STORE_COLOR, index, variation, value))
+      dispatch(changeColor(index, variation, value))
     }
   }
 }

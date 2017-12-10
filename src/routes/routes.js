@@ -5,12 +5,12 @@ import Fonts from '../components/Fonts.jsx';
 //import Palette from '../components/Palette.jsx';
 import Spacing from '../components/Spacing.jsx';
 import Typography from '../components/Typography.jsx';
-import ColorContainer from '../components/ColorContainer.jsx'
+import ColorContainer from '../components/ColorContainer.js'
 
 const routes = () => {
     const components = { 
         Dashboard,
-        ColorContainer,
+        Color: ColorContainer,
         Spacing, 
         Aspect, 
         Breakpoints, 

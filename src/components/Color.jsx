@@ -10,7 +10,8 @@ class Color extends Component {
             <h3 className="color__name">{this.props.color.name}</h3>
             { Object.keys(this.props.color).splice(1).map(variation=>
                 <ColorVariation 
-                  index={variation}
+                  index={this.props.index}
+                  variation={variation}
                   color={this.props.color}
                   handleColorChange = {this.props.handleColorChange}
                   key={`${this.props.color.name}-${variation}`}
