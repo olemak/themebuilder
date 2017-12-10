@@ -1,0 +1,29 @@
+/* eslint no-unused-expressions: 0 */
+import { connect } from 'react-redux'
+import React, { Component } from 'react';
+
+import {STORE_COLOR, storeColor} from '../actions/actions'
+
+// COMPONENTS
+import Palette from './Palette.jsx';
+
+const mapStateToProps = state => {
+  return {
+    colors: state.colors
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    changeColor: (index, variation, value) => {
+      dispatch(storeColor(STORE_COLOR, index, variation, value))
+    }
+  }
+}
+
+const ColorContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Palette)
+
+export default ColorContainer;
