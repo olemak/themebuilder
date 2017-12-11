@@ -1,8 +1,22 @@
 import React, { Component } from 'react';
 import ColorVariation from './ColorVariation';
+
+// UTILITIES
+import invertColor from '../utils/invertColor.js';
+import shadeColor from '../utils/shadeColor.js';
+
 import './Color.css';
 
 class Color extends Component {
+
+  componentWillUpdate(nextProps, nextState){
+    if (this.props.color.main !== nextProps.color.main) {
+      this.props.handleColorChange(nextProps.index, "contrast", invertColor(nextProps.color.main));
+      this.props.handleColorChange(nextProps.index, "light", shadeColor(nextProps.color.main, 25));
+      this.props.handleColorChange(nextProps.index, "dark", shadeColor(nextProps.color.main, -25));
+    }
+  }
+
 
   render() {
     return (

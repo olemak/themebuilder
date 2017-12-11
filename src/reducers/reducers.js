@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux'
 import {
-  CHANGE_COLOR,
-  changeColor
+  CHANGE_COLOR
 } from '../actions/actions'
 
 import defaultColors from '../data/defaultColors'
@@ -14,10 +13,10 @@ function colors (state = defaultColors, action) {
                 if (index === action.index) {
                 return Object.assign({}, color, {
                     [action.variation]: action.value
-                })
+                });
                 }
-                return color
-            })
+                return color;
+            });
 
         default:
         return state

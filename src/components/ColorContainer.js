@@ -1,7 +1,7 @@
 /* eslint no-unused-expressions: 0 */
 import { connect } from 'react-redux'
 
-import {CHANGE_COLOR, changeColor} from '../actions/actions'
+import {changeColor} from '../actions/actions'
 
 // COMPONENTS
 import Palette from './Palette.jsx';

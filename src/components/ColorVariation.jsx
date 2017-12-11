@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { getContrast } from "../utils/contrastRatio.js";
-import {CHANGE_COLOR} from "../actions/actions";
 import FaEdit from 'react-icons/lib/fa/pencil';
 
 class ColorVariation extends Component {
@@ -16,13 +15,15 @@ class ColorVariation extends Component {
                 id={id} 
                 type="color" 
                 value={colorValue} 
-                onChange={event => {this.props.handleColorChange(
-                    this.props.index,
-                    this.props.variation,
-                    event.target.value)}}
+                onChange={event => {
+                    this.props.handleColorChange(
+                        this.props.index,
+                        this.props.variation,
+                        event.target.value)
+                }}
                 disabled={(this.props.color.locked && this.props.color.locked.indexOf(this.props.index) > -1)} />
             <label htmlFor={id}>
-                <FaEdit color={this.props.index === "contrast" ? this.props.color.main : this.props.color.contrast}/>
+                <FaEdit color={(this.props.variation === "contrast") ? this.props.color.main : this.props.color.contrast}/>
             </label>
 
             {this.props.variation === "contrast" && getContrast(this.props.color.main, this.props.color.contrast) < 4.5 ? 

@@ -1,37 +1,34 @@
 const defaultColors = [
     {
         name:       "Brand",
-        main:       "#123456",
-        contrast:   "#765432",
-        light:      "#234567",
-        dark:       "#345678"
+        main:       "#123456"
     }, {
         name:       "Primary",
         main:       "#345612"
     }, {
         name:       "Support",
-        main:       "#345612"
+        main:       "#8080ff"
     }, {
         name:       "Black",
-        main:       "#345612"
+        main:       "#3b3b3b"
     }, {
         name:       "White",
-        main:       "#FFFFFF"
+        main:       "#ebebeb"
     }, {
         name:       "Gray",
-        main:       "#345612"
+        main:       "#c0c0c0"
     }, {
         name:       "Info",
-        main:       "#345612"
+        main:       "#0080ff"
     }, {
         name:       "Success",
-        main:       "#345612"
+        main:       "#00ff40"
     }, {
         name:       "Alert",
-        main:       "#345612"
+        main:       "#ff0000"
     }, {
         name:       "Warn",
-        main:       "#345612"
+        main:       "#ff702b"
     }
 ]
 
