@@ -1,14 +1,31 @@
 import { combineReducers } from 'redux'
 import {
-  CHANGE_COLOR
+  CHANGE_COLOR,
+  CHANGE_ASPECT
 } from '../actions/actions'
 
 import defaultColors from '../data/defaultColors'
+import defaultAspects from '../data/defaultAspects'
+
+function aspects(state = defaultAspects, action) {
+    switch (action.type) {
+        case CHANGE_ASPECT: 
+        return state.map(aspect => {
+            if (aspect.name === action.name) {
+                    return Object.assign({}, aspect, {
+                        ratio: action.ratio
+                    });
+                }
+                return aspect;
+            })
+        default:
+        return state
+    }
+}
 
 function colors (state = defaultColors, action) {
     switch (action.type) {
         case CHANGE_COLOR: 
-            //       be smart and return correctly set color state!
             return state.map((color, index) => {
                 if (index === action.index) {
                 return Object.assign({}, color, {
@@ -17,14 +34,13 @@ function colors (state = defaultColors, action) {
                 }
                 return color;
             });
-
         default:
         return state
     }
 }
 
 const painlecss = combineReducers({
-  colors
+  aspects, colors
 })
 
 export default painlecss
