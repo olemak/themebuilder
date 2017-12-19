@@ -1,6 +1,7 @@
 //import Aspect from '../components/Aspect.jsx';
 //import Palette from '../components/Palette.jsx';
-import Breakpoints from '../components/Breakpoints.jsx';
+//import Breakpoints from '../components/Breakpoints.jsx';
+import BreakpointContainer from '../components/BreakpointContainer.js';
 import Dashboard from '../components/Dashboard.jsx';
 //import Fonts from '../components/Fonts.jsx';
 import Spacing from '../components/Spacing.jsx';
@@ -16,7 +17,7 @@ const routes = () => {
         Color: ColorContainer,
         Spacing, 
         Aspect: AspectContainer, 
-        Breakpoints, 
+        Breakpoints: BreakpointContainer, 
         Fonts: FontContainer, 
         Typography 
     };

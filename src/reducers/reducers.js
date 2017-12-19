@@ -2,12 +2,14 @@ import { combineReducers } from 'redux'
 import {
   CHANGE_COLOR,
   CHANGE_ASPECT,
-  CHANGE_FONT
+  CHANGE_FONT,
+  CHANGE_BREAKPOINT
 } from '../actions/actions'
 
 import defaultColors from '../data/defaultColors'
 import defaultAspects from '../data/defaultAspects'
 import defaultFonts from '../data/defaultFonts'
+import defaultBreakpoints from '../data/defaultBreakpoints'
 
 function aspects(state = defaultAspects, action) {
     switch (action.type) {
@@ -52,8 +54,19 @@ function fonts (state = defaultFonts, action) {
     }
 }
 
+function breakpoints (state = defaultBreakpoints, action) {
+    switch (action.type) {
+        case CHANGE_BREAKPOINT:
+        return Object.assign({}, state, {
+            [action.name]:  action.size
+        });
+    default:
+        return state;
+    }
+}
+
 const painlecss = combineReducers({
-  aspects, colors, fonts
+  aspects, colors, fonts, breakpoints
 })
 
 export default painlecss

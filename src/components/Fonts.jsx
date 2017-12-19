@@ -37,6 +37,7 @@ class Fonts extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        // eslint-disable-next-line
         if (nextProps.fonts && nextProps.fonts.main.family !== this.props.fonts.main.family || nextProps.fonts.support.family !== this.props.fonts.support.family ) {
             const mainOrSupport = (nextProps.fonts.main.family !== this.props.fonts.main.family) ? "main" : "support";
 
