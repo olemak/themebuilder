@@ -2,12 +2,13 @@
 //import Palette from '../components/Palette.jsx';
 import Breakpoints from '../components/Breakpoints.jsx';
 import Dashboard from '../components/Dashboard.jsx';
-import Fonts from '../components/Fonts.jsx';
+//import Fonts from '../components/Fonts.jsx';
 import Spacing from '../components/Spacing.jsx';
 import Typography from '../components/Typography.jsx';
 
 import ColorContainer from '../components/ColorContainer.js'
 import AspectContainer from '../components/AspectContainer.js'
+import FontContainer from '../components/FontContainer.js'
 
 const routes = () => {
     const components = { 
@@ -16,7 +17,7 @@ const routes = () => {
         Spacing, 
         Aspect: AspectContainer, 
         Breakpoints, 
-        Fonts, 
+        Fonts: FontContainer, 
         Typography 
     };
 

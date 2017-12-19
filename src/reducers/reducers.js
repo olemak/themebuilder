@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux'
 import {
   CHANGE_COLOR,
-  CHANGE_ASPECT
+  CHANGE_ASPECT,
+  CHANGE_FONT
 } from '../actions/actions'
 
 import defaultColors from '../data/defaultColors'
 import defaultAspects from '../data/defaultAspects'
+import defaultFonts from '../data/defaultFonts'
 
 function aspects(state = defaultAspects, action) {
     switch (action.type) {
@@ -39,8 +41,19 @@ function colors (state = defaultColors, action) {
     }
 }
 
+function fonts (state = defaultFonts, action) {
+    switch (action.type) {
+        case CHANGE_FONT:
+        return Object.assign({}, state, {
+            [action.name]:  action.family
+        });
+    default:
+        return state;
+    }
+}
+
 const painlecss = combineReducers({
-  aspects, colors
+  aspects, colors, fonts
 })
 
 export default painlecss
