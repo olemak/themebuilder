@@ -1,35 +1,37 @@
-const defaultColors = [
-    {
-        name:       "Brand",
-        main:       "#123456"
-    }, {
-        name:       "Primary",
-        main:       "#345612"
-    }, {
-        name:       "Support",
-        main:       "#8080ff"
-    }, {
-        name:       "Black",
-        main:       "#3b3b3b"
-    }, {
-        name:       "White",
-        main:       "#ebebeb"
-    }, {
-        name:       "Gray",
-        main:       "#c0c0c0"
-    }, {
-        name:       "Info",
-        main:       "#0080ff"
-    }, {
-        name:       "Success",
-        main:       "#00ff40"
-    }, {
-        name:       "Alert",
-        main:       "#ff0000"
-    }, {
-        name:       "Warn",
-        main:       "#ff702b"
+import { contrast } from "../utils/contrastRatio";
+
+const defaultColors = {
+    brand: {
+        value:       "#123456",
+        contrast:    "#ff00ff"
+    },
+    main: {
+        value:       "#345612"
+    },
+    support: {
+        value:       "#561234"
+    },
+    black: {
+        value:       "#3b3b3b"
+    }, 
+    white: {
+        value:       "#ebebeb"
+    }, 
+    gray: {
+        value:       "#c0c0c0"
+    }, 
+    info: {
+        value:       "#0080ff"
+    }, 
+    success: {
+        value:       "#00ff40"
+    }, 
+    alert: {
+        value:       "#ff0000"
+    }, 
+    warn: {
+        value:       "#ff702b"
     }
-]
+}
 
 export default defaultColors;

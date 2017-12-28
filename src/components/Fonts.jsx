@@ -23,7 +23,6 @@ class Fonts extends Component {
     fontSelect = ( event ) => {
         let selectedFont = this.state.googleFontList.find(font=>font.family === event.target.value);
         if (selectedFont) {
-           // this.setState({[event.target.name]: selectedFont});
             this.props.changeFont(event.target.name, selectedFont);
         }
     }

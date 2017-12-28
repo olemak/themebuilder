@@ -10,10 +10,10 @@ import './Color.css';
 class Color extends Component {
 
   componentWillUpdate(nextProps, nextState){
-    if (this.props.color.main !== nextProps.color.main) {
-      this.props.handleColorChange(nextProps.index, "contrast", invertColor(nextProps.color.main));
-      this.props.handleColorChange(nextProps.index, "light", shadeColor(nextProps.color.main, 25));
-      this.props.handleColorChange(nextProps.index, "dark", shadeColor(nextProps.color.main, -25));
+    if (nextProps.color.value && this.props.color.value !== nextProps.color.value) {
+      this.props.handleColorChange(this.props.name, "contrast", invertColor(nextProps.color.value));
+      this.props.handleColorChange(this.props.name, "light", shadeColor(nextProps.color.value, 25));
+      this.props.handleColorChange(this.props.name, "dark", shadeColor(nextProps.color.value, -25));
     }
   }
 
@@ -21,14 +21,15 @@ class Color extends Component {
   render() {
     return (
         <div className="Color grid-body grid-container">
-            <h3 className="color__name">{this.props.color.name}</h3>
-            { Object.keys(this.props.color).splice(1).map(variation=>
+            <h3 className="color__name">{this.props.name}</h3>
+            { Object.keys(this.props.color).map(variation=>
                 <ColorVariation 
-                  index={this.props.index}
-                  variation={variation}
-                  color={this.props.color}
-                  handleColorChange = {this.props.handleColorChange}
-                  key={`${this.props.color.name}-${variation}`}
+                  variation = { variation }
+                  color = { this.props.color }
+                  colorValue = { this.props.color[variation] }
+                  handleColorChange = { this.props.handleColorChange }
+                  colorName = { this.props.name }
+                  key = { `${this.props.name}-${variation}` }
                 />
             )}
         </div>
