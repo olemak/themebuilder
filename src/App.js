@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import routes from './routes/routes.js'
+import { Provider } from 'react-redux';
+import { createStore } from 'redux'
+import painlecss from './reducers/reducers'
 
 import './App.css';
+
+let store = createStore(painlecss, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 class App extends Component {
 
   
   render() {
     return (
+      <Provider store={store}>
       <Router>
         <div className="Themebuilder">          
           <header className="Header">
@@ -23,6 +29,7 @@ class App extends Component {
           </main>          
         </div>
       </Router>
+      </Provider>
     );
   }
 }

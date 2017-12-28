@@ -1,18 +1,10 @@
 import React, { Component } from 'react';
+import WebFont from 'webfontloader';
 
 import './fonts.css';
 
 class Fonts extends Component {
     state = {
-        mainFont: {
-            family:     "Select you main font",
-            variants:   ["regular"],
-            files:      {"regular": "http://themes.googleusercontent.com/static/fonts/antic/v4/hEa8XCNM7tXGzD0Uk0AipA.ttf"}
-        },
-        supportFont: {
-            family:     "Optional support font",
-            variants:   [],
-        },
         activateSupportFont: false,
         googleFontList: [
             {family: ""}
@@ -31,7 +23,7 @@ class Fonts extends Component {
     fontSelect = ( event ) => {
         let selectedFont = this.state.googleFontList.find(font=>font.family === event.target.value);
         if (selectedFont) {
-            this.setState({[event.target.name]: selectedFont});
+            this.props.changeFont(event.target.name, selectedFont);
         }
     }
 
@@ -41,6 +33,20 @@ class Fonts extends Component {
 
         // TODO: set included variants in state on respective font.
 
+    }
+
+    componentWillReceiveProps(nextProps) {
+        // eslint-disable-next-line
+        if (nextProps.fonts && nextProps.fonts.main.family !== this.props.fonts.main.family || nextProps.fonts.support.family !== this.props.fonts.support.family ) {
+            const mainOrSupport = (nextProps.fonts.main.family !== this.props.fonts.main.family) ? "main" : "support";
+
+            WebFont.load({
+                google: {
+                  families: [nextProps.fonts[mainOrSupport].family]
+                }
+              });
+
+        }
     }
 
     render() {
@@ -53,12 +59,12 @@ class Fonts extends Component {
                 
                 <div className="font font--main">                        
                     <h3>Main Font</h3>
-                        <input list="googleFonts" onInput={this.fontSelect} name="mainFont" />                    
+                        <input list="googleFonts" onInput={this.fontSelect} name="main" />                    
                         <div className="font__details">
-                            <h4>{this.state.mainFont.family}</h4>
+                            <h4 style={{fontFamily: `${this.props.fonts.main.family}, Comfortaa, sans-serif`}}>{this.props.fonts.main.family}</h4>
                             <h5>Select Variants</h5>
-                            {this.state.mainFont.variants.map(variant=><div className="font-variant__wrapper" key={`main-font-${variant}`}>
-                                <input className="font-variant__input" type="checkbox" onChange={this.fontVariantSelect} name="mainFont" value={variant} />
+                            {this.props.fonts.main.variants.map(variant=><div className="font-variant__wrapper" key={`main-font-${variant}`}>
+                                <input className="font-variant__input" type="checkbox" onChange={this.fontVariantSelect} name="main" value={variant} />
                                 <p className="font-variant__example">{variant}</p>
                                 </div>)}
                         </div>
@@ -67,12 +73,12 @@ class Fonts extends Component {
                 <input type="checkbox" className="font__add--support" onChange={()=>{this.setState({activateSupportFont: !this.state.activateSupportFont})}}/>
                 {this.state.activateSupportFont ? <div className="font font--support">
                     <h3>Support Font</h3>
-                    <input list="googleFonts" onInput={this.fontSelect} name="supportFont" />                    
+                    <input list="googleFonts" onInput={this.fontSelect} name="support" />                    
                         <div className="font__details">
-                            <h4>{this.state.supportFont.family}</h4>
+                            <h4 style={{fontFamily: `${this.props.fonts.support.family}, Comfortaa, sans-serif`}}>{this.props.fonts.support.family}</h4>
                             <h5>Select Variants</h5>
-                            {this.state.supportFont.variants.map(variant=><div className="font-variant__wrapper" key={`support-font-${variant}`}>
-                                <input className="font-variant__input" type="checkbox" onChange={this.fontVariantSelect} name="supportFont" value={variant} />
+                            {this.props.fonts.support.variants.map(variant=><div className="font-variant__wrapper" key={`support-font-${variant}`}>
+                                <input className="font-variant__input" type="checkbox" onChange={this.fontVariantSelect} name="support" value={variant} />
                                 <p className="font-variant__example">{variant}</p>
                             </div>)}
                         </div>
