@@ -7,7 +7,7 @@ class Fonts extends Component {
     state = {
         activateSupportFont: false,
         googleFontList: [
-            {family: ""}
+            {family: ""}    
         ]
     }
     

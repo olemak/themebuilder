@@ -1,5 +1,3 @@
-import { contrast } from "../utils/contrastRatio";
-
 const defaultColors = {
     brand: {
         value:       "#123456",

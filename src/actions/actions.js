@@ -15,8 +15,8 @@ export function changeAspect(name, ratio) {
     return { type: CHANGE_ASPECT, name, ratio }
 }
 
-export function changeFont(name, family, font) {
-    return { type: CHANGE_FONT, name, family, font }
+export function changeFont(name, font) {
+    return { type: CHANGE_FONT, name, font }
 }
 
 export function changeBreakpoint(index, name, value) {
