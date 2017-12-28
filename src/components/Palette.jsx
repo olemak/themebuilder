@@ -14,19 +14,31 @@ import './Palette.css';
 class Palette extends Component {
 
   componentWillMount() {
-    this.props.colors.map((color, i)=>{
-      this.props.changeColor(i, "contrast", invertColor(color.main));
-      this.props.changeColor(i, "light", shadeColor(color.main, 25));
-      this.props.changeColor(i, "dark", shadeColor(color.main, -25));
-      return true;
-    })
+    for (let color in this.props.colors) {
+      this.props.changeColor(color, "contrast", invertColor(this.props.colors[color].value));
+      this.props.changeColor(color, "light", shadeColor(this.props.colors[color].value, 25));
+      this.props.changeColor(color, "dark", shadeColor(this.props.colors[color].value, -25));
+    }
+  }
+
+  paint(colors) {
+    let colorElements = [];
+    for (let color in colors) {
+      colorElements.push(<Color 
+        handleColorChange={this.props.changeColor} 
+        color = { colors[color] }
+        name = { color }
+        key = { color }
+      />)
+    }
+    return colorElements;
   }
 
   render() {
       return (
         <section className="Palette">
           <h3 className="palette__header">Palette</h3>
-          {this.props.colors.map((color, index)=><Color handleColorChange={this.props.changeColor} index={index} color={color} key={color.name}/>)}
+            {this.paint(this.props.colors)}
         </section>
       );
     }

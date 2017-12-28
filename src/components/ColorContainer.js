@@ -14,8 +14,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    changeColor: (index, variation, value) => {
-      dispatch(changeColor(index, variation, value))
+    changeColor: (colorName, variation, value) => {
+      dispatch(changeColor(colorName, variation, value))
     }
   }
 }

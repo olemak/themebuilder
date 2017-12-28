@@ -7,8 +7,8 @@ export const CHANGE_BREAKPOINT = 'CHANGE_BREAKPOINT'
 
 
 // #region Action Creators
-export function changeColor(index, variation, value) {
-    return { type: CHANGE_COLOR, index, variation, value }
+export function changeColor(colorName, variation, colorValue) {
+    return { type: CHANGE_COLOR, colorName, variation, colorValue }
 }
 
 export function changeAspect(name, ratio) {

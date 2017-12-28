@@ -29,17 +29,14 @@ function aspects(state = defaultAspects, action) {
 
 function colors (state = defaultColors, action) {
     switch (action.type) {
-        case CHANGE_COLOR: 
-            return state.map((color, index) => {
-                if (index === action.index) {
-                return Object.assign({}, color, {
-                    [action.variation]: action.value
-                });
+        case CHANGE_COLOR:
+            return Object.assign({}, state, {
+                [action.colorName]:  Object.assign({}, state[action.colorName], {
+                    [action.variation]: action.colorValue
                 }
-                return color;
-            });
+            )});
         default:
-        return state
+            return state;
     }
 }
 
@@ -47,7 +44,7 @@ function fonts (state = defaultFonts, action) {
     switch (action.type) {
         case CHANGE_FONT:
         return Object.assign({}, state, {
-            [action.name]:  action.family
+            [action.name]:  action.font
         });
     default:
         return state;
