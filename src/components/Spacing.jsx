@@ -37,7 +37,8 @@ class Spacing extends Component {
                 value={this.props.spacing[space]} 
                 changeSpace={this.props.changeSpacing} 
                 prev={(i === 0 ? 0.2 : values[(i - 1)])}
-                next={(i === values.length ? values[values.length] * 2 : values[++i])}
+                index = {`index:${i} values.length:${values.length}`}
+                next={(i === values.length - 1 ? 10 : values[++i])}
                 key={`space-${space}`}
             />)
         }

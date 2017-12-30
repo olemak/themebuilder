@@ -12,7 +12,8 @@
 }
 
 .space__visualisation-wrapper--px {
-    width: 4em;
+    display: inline-block;
+    width: 5em;
 }
 
 .space__visualisation {
