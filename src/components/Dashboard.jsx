@@ -25,9 +25,11 @@ class Dashboard extends Component {
                 <br />
 
                 <button onClick={()=>{this.downloadJSON(this.props.state)}}>Download JSON<br />Download theme variables in JSON file format</button>
+                
+                {/*
                 <button disabled>Save<br />Save to theme.json file in project root directory.</button>
                 <button disabled>Remember<br />Store current vaiables to localstorage</button>
-                
+                */}
             </div>
         );
     }
