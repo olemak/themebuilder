@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import routes from './routes/routes.js'
 import { Provider } from 'react-redux';
 import { createStore } from 'redux'
-import painlecss from './reducers/reducers'
+import themebuilder from './reducers/reducers'
 
 import './App.css';
 
-let store = createStore(painlecss, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+let store = createStore(themebuilder, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 class App extends Component {
 
