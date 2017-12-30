@@ -4,12 +4,12 @@ import ColorContainer from '../components/ColorContainer.js'
 import AspectContainer from '../components/AspectContainer.js'
 import FontContainer from '../components/FontContainer.js'
 
-import Dashboard from '../components/Dashboard.jsx';
+import DashboardContainer from '../components/DashboardContainer.js';
 //import Typography from '../components/Typography.jsx';
 
 const routes = () => {
     const components = { 
-        Dashboard,
+        Dashboard: DashboardContainer,
         Color: ColorContainer,
         Spacing: SpacingContainer, 
         Aspect: AspectContainer, 
