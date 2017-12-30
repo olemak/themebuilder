@@ -1,11 +1,11 @@
-const defaultAspects = [
-    {name: "banner",        ratio: 0.25},
-    {name: "wide",          ratio: 0.5},
-    {name: "landscape",     ratio: 0.6},
-    {name: "square",        ratio: 1.0},
-    {name: "portrait",      ratio: 1.3},
-    {name: "tall",          ratio: 2.0},
-    {name: "skyscraper",    ratio: 4.0},
-];
+const defaultAspects = {
+    banner: 0.25,
+    wide: 0.5,
+    landscape: 0.6,
+    square: 1.0,
+    portrait: 1.3,
+    tall: 2.0,
+    skyscraper: 4.0,
+};
 
 export default defaultAspects;

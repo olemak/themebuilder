@@ -15,15 +15,10 @@ import defaultSpacing from '../data/defaultSpacing'
 
 function aspects(state = defaultAspects, action) {
     switch (action.type) {
-        case CHANGE_ASPECT: 
-            return state.map(aspect => {
-                if (aspect.name === action.name) {
-                        return Object.assign({}, aspect, {
-                            ratio: action.ratio
-                        });
-                    }
-                    return aspect;
-                })
+        case CHANGE_ASPECT:         
+            return Object.assign({}, state, {
+                [action.name]: action.ratio
+            })
         default:
             return state
     }
