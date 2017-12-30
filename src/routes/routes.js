@@ -1,15 +1,15 @@
-import BreakpointContainer from '../components/BreakpointContainer.js';
-import SpacingContainer from '../components/SpacingContainer.js';
-import ColorContainer from '../components/ColorContainer.js'
 import AspectContainer from '../components/AspectContainer.js'
+import BreakpointContainer from '../components/BreakpointContainer.js';
+import ColorContainer from '../components/ColorContainer.js'
+import DashboardContainer from '../components/DashboardContainer.js';
 import FontContainer from '../components/FontContainer.js'
+import SpacingContainer from '../components/SpacingContainer.js';
 
-import Dashboard from '../components/Dashboard.jsx';
 //import Typography from '../components/Typography.jsx';
 
 const routes = () => {
     const components = { 
-        Dashboard,
+        Dashboard: DashboardContainer,
         Color: ColorContainer,
         Spacing: SpacingContainer, 
         Aspect: AspectContainer, 
