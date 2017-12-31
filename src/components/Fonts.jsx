@@ -61,12 +61,13 @@ class Fonts extends Component {
                             <h5>Select Variants</h5>
                             {this.props.fonts.main.variants.map(variant=><div className="font-variant__wrapper" key={`main-font-${variant}`}>
                                 <input className="font-variant__input" type="checkbox" onChange={this.fontVariantSelect} name="main" value={variant} checked={(this.props.fonts.main.selectedVariants.indexOf(variant) > -1)}/>
-                                <p className="font-variant__example">{variant}</p>
+                                <p className="font-variant__example" style={{fontFamily: this.props.fonts.main.family, fontWeight: variant}}>{variant}</p>
                                 </div>)}
                         </div>
                 </div>
 
-                <input type="checkbox" className="font__add--support" onChange={()=>{this.setState({activateSupportFont: !this.state.activateSupportFont})}}/>
+                <input type="checkbox" id="showSupport" className="font__add--support" onChange={()=>{this.setState({activateSupportFont: !this.state.activateSupportFont})}}/>
+                <label htmlFor="showSupport">Show support font</label>
                 {this.state.activateSupportFont ? <div className="font font--support">
                     <h3>Support Font</h3>
                     <input list="googleFonts" onInput={this.fontSelect} name="support" />                    
