@@ -13,6 +13,7 @@
 
 .font-variant__example {
     flex: 1 1 70%;
+    max-width: 100%;
 }
 
 
