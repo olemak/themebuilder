@@ -28,11 +28,7 @@ class Fonts extends Component {
     }
 
     fontVariantSelect = event => {
-        console.dir(event.target);
-        console.log(event.target.name, event.target.value, event.target.checked);
-
-        // TODO: set included variants in state on respective font.
-
+        this.props.toggleFontVariation(event.target.name, event.target.value)
     }
 
     componentWillReceiveProps(nextProps) {
@@ -54,7 +50,7 @@ class Fonts extends Component {
             <div className="Fonts">
                 <p>Tip: You must know your fonts. Use <a href="//google.fonts/">Google Fonts</a> for details on the available fonts.</p>
                 <datalist id="googleFonts" >
-                    {this.state.googleFontList.map(font=><option value={font.family} key={font.family}/>)}
+                    {this.state.googleFontList.map(font=><option value={font.family} key={font.family} />)}
                 </datalist>
                 
                 <div className="font font--main">                        
@@ -64,7 +60,7 @@ class Fonts extends Component {
                             <h4 style={{fontFamily: `${this.props.fonts.main.family}, Comfortaa, sans-serif`}}>{this.props.fonts.main.family}</h4>
                             <h5>Select Variants</h5>
                             {this.props.fonts.main.variants.map(variant=><div className="font-variant__wrapper" key={`main-font-${variant}`}>
-                                <input className="font-variant__input" type="checkbox" onChange={this.fontVariantSelect} name="main" value={variant} />
+                                <input className="font-variant__input" type="checkbox" onChange={this.fontVariantSelect} name="main" value={variant} checked={(this.props.fonts.main.selectedVariants.indexOf(variant) > -1)}/>
                                 <p className="font-variant__example">{variant}</p>
                                 </div>)}
                         </div>

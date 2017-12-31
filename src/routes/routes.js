@@ -1,25 +1,21 @@
-//import Aspect from '../components/Aspect.jsx';
-//import Palette from '../components/Palette.jsx';
-//import Breakpoints from '../components/Breakpoints.jsx';
-import BreakpointContainer from '../components/BreakpointContainer.js';
-import Dashboard from '../components/Dashboard.jsx';
-//import Fonts from '../components/Fonts.jsx';
-import Spacing from '../components/Spacing.jsx';
-import Typography from '../components/Typography.jsx';
-
-import ColorContainer from '../components/ColorContainer.js'
 import AspectContainer from '../components/AspectContainer.js'
+import BreakpointContainer from '../components/BreakpointContainer.js';
+import ColorContainer from '../components/ColorContainer.js'
+import DashboardContainer from '../components/DashboardContainer.js';
 import FontContainer from '../components/FontContainer.js'
+import SpacingContainer from '../components/SpacingContainer.js';
+
+//import Typography from '../components/Typography.jsx';
 
 const routes = () => {
     const components = { 
-        Dashboard,
+        Dashboard: DashboardContainer,
         Color: ColorContainer,
-        Spacing, 
+        Spacing: SpacingContainer, 
         Aspect: AspectContainer, 
         Breakpoints: BreakpointContainer, 
         Fonts: FontContainer, 
-        Typography 
+//        Typography 
     };
 
     return Object.keys( components ).map( component => {

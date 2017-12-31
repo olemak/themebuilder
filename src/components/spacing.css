@@ -1,0 +1,31 @@
+.space__label {
+    display: inline-block;
+    width: 10%;
+    min-width: 5em;
+}
+
+.space__output {
+    text-align: right;
+    width: 3em;
+    display: inline-block;
+    margin-right: 1em;
+}
+
+.space__visualisation-wrapper--px {
+    display: inline-block;
+    width: 5em;
+}
+
+.space__visualisation {
+    display: inline-block;
+    margin-left: 1em;
+    margin-right: 1em;
+    height: 1em;
+}
+
+.space__visualisation--px {
+    background-color: red;
+}
+.space__visualisation--em {
+    background-color: blue;
+}
