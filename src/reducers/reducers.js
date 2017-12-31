@@ -3,9 +3,12 @@ import {
   CHANGE_COLOR,
   CHANGE_ASPECT,
   CHANGE_FONT,
+  TOGGLE_FONT_VARIATION,
   CHANGE_BREAKPOINT,
   CHANGE_SPACING
 } from '../actions/actions'
+import toggleInArray from '../utils/toggleInArray.js'
+
 
 import defaultColors from '../data/defaultColors'
 import defaultAspects from '../data/defaultAspects'
@@ -41,8 +44,20 @@ function fonts (state = defaultFonts, action) {
     switch (action.type) {
         case CHANGE_FONT:
             return Object.assign({}, state, {
-                [action.name]:  action.font
+                [action.name]:  Object.assign({}, state[action.name], {
+                    family: action.font.family,
+                    variants: action.font.variants,
+                    selectedVariants: ["regular"]
+                })
             });
+    
+        case TOGGLE_FONT_VARIATION: 
+        return Object.assign({}, state, {
+            [action.name]:  Object.assign({}, state[action.name], {
+                  selectedVariants: toggleInArray(state[action.name].selectedVariants, action.variation)
+            })
+        });
+
         default:
             return state;
     }

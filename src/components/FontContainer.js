@@ -1,7 +1,7 @@
 /* eslint no-unused-expressions: 0 */
 import { connect } from 'react-redux'
 
-import {changeFont} from '../actions/actions'
+import {changeFont, toggleFontVariation} from '../actions/actions'
 
 // COMPONENTS
 import Fonts from './Fonts.jsx';
@@ -16,6 +16,9 @@ const mapDispatchToProps = dispatch => {
   return {
     changeFont: (name, value) => {
       dispatch(changeFont(name, value))
+    },
+    toggleFontVariation: (name, variation) => {
+      dispatch(toggleFontVariation(name, variation))
     }
   }
 }

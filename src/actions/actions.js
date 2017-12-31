@@ -2,6 +2,7 @@
 export const CHANGE_COLOR = 'CHANGE_COLOR'
 export const CHANGE_ASPECT = 'CHANGE_ASPECT'
 export const CHANGE_FONT = 'CHANGE_FONT'
+export const TOGGLE_FONT_VARIATION = 'TOGGLE_FONT_VARIATION'
 export const CHANGE_BREAKPOINT = 'CHANGE_BREAKPOINT'
 export const CHANGE_SPACING = 'CHANGE_SPACING'
 // #endregion
@@ -18,6 +19,10 @@ export function changeAspect(name, ratio) {
 
 export function changeFont(name, font) {
     return { type: CHANGE_FONT, name, font }
+}
+
+export function toggleFontVariation(name, variation) {
+    return { type: TOGGLE_FONT_VARIATION, name, variation }
 }
 
 export function changeBreakpoint(index, name, value) {
