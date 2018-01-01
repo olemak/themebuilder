@@ -7,7 +7,7 @@ import themebuilder from './reducers/reducers'
 
 import './App.css';
 
-let store = createStore(themebuilder, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+let store = (process.env.NODE_ENV !== "production" ? createStore(themebuilder, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) : "");
 
 class App extends Component {
 
