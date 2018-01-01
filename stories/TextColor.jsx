@@ -7,7 +7,7 @@ class TextColor extends Component {
     themeTextColors() {
         let textColors = [];
         for (let color in theme.colors) {
-            textColors.push(<section className="text">
+            textColors.push(<section className="text" key={`text-color--${color}`}>
             <p className={`text text--${color}`}>
                 {`.text .text--${color}`}<br />
                 {`${color} color on neutral background`}
