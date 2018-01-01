@@ -7,6 +7,8 @@ import SpacingContainer from '../components/SpacingContainer.js';
 
 //import Typography from '../components/Typography.jsx';
 
+const root = (process.env.NODE_ENV === "production" ? "/themebuilder/" : "/");
+
 const routes = () => {
     const components = { 
         Dashboard: DashboardContainer,
@@ -20,7 +22,7 @@ const routes = () => {
 
     return Object.keys( components ).map( component => {
             return { 
-                path: (component !== "Dashboard" ? `/${component.toLowerCase()}` : "/"),
+                path: (component !== "Dashboard" ? `${root}${component.toLowerCase()}` : root),
                 exact : true,
                 name: component,
                 component: ()=>components[component]
