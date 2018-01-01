@@ -6,6 +6,8 @@ import { linkTo } from '@storybook/addon-links';
 
 import { Button, Welcome } from '@storybook/react/demo';
 
+import TextColor from './TextColor';
+
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
 storiesOf('Button', module)
@@ -13,4 +15,5 @@ storiesOf('Button', module)
   .add('with some emoji', () => <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>);
 
 storiesOf('Typography', module)
-  .add('Basic', () => <div className="basic">Basic Typography</div>)
+  .add('Basic Text', () => <div className="basic">Basic Typography</div>)
+  .add('Text Color', () => <TextColor />)
