@@ -1,0 +1,18 @@
+@mixin textClasses($_colors: $colors){
+    .text {
+        &-color {
+            @each $colorName in map-keys($_colors) {
+                &--#{$colorName} {
+                    @include color(map-get($_colors, $colorName), value);
+                }
+            }
+        }
+    }
+}
+
+//@include textClasses();
+
+.text-color--brand {
+    font-weight: 700;
+    color: getColor(alert, light);
+}

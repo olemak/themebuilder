@@ -1,0 +1,3 @@
+@mixin color($color: main, $variant: value) {
+    color: getColor($color, $variant);
+}
