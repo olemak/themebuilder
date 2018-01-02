@@ -16,7 +16,7 @@ module.exports = {
     rules: [
       {
         test: /\.scss$/,
-        loaders: ["style-loader", "css-loader", "sass-loader"],
+        loaders: ["style-loader", "css-loader", "sass-loader", "jsontosass-loader?path='./theme.json'"],
         include: path.resolve(__dirname, '../scss/index.scss')
       }
     ],
