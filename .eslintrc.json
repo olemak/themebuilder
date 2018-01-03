@@ -1,7 +1,6 @@
 {
-    "extends": "airbnb",
-    "installedESLint": true,
-    "plugins": [
-        "react"
-    ]
-}
+    "extends": ["airbnb-standard"],
+    "rules": {
+      "semi": ["error", "never"]
+    }
+  }
