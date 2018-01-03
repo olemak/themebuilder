@@ -1,7 +1,14 @@
-//@import 'index';
+@include textClasses();
 
+.story {
+    &--text {
+        border: 1px solid getColor(gray, dark);
+        margin: 1em 0;
+        padding: 1em;
+    }
+    &--classname {
+        display: inline-block;
+        width: 12em;
+    }
+}
 
-
-
-
-//@include textClasses();

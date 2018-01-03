@@ -1,18 +1,25 @@
 @mixin textClasses($_colors: $colors){
+    @debug $_colors;
     .text {
         &-color {
             @each $colorName in map-keys($_colors) {
-                &--#{$colorName} {
-                    @include color(map-get($_colors, $colorName), value);
+                &__#{$colorName} {
+                    color: getColor($colorName, value);
+                    @each $variationName in (value, contrast, dark, light) {
+                        &--#{$variationName} {
+                            color: getColor($colorName, $variationName);
+                        }
+                    }
+                }
+            }
+        }
+        &-background {
+            @each $backgroundColorName in map-keys($_colors) {
+                &--#{$backgroundColorName} {
+                    background-color: getColor($backgroundColorName, value);
                 }
             }
         }
     }
 }
 
-//@include textClasses();
-
-.text-color--brand {
-    font-weight: 700;
-    color: getColor(alert, light);
-}
