@@ -1,13 +1,13 @@
 @mixin textClasses($_colors: $colors){
-    @debug $_colors;
+
     .text {
         &-color {
             @each $colorName in map-keys($_colors) {
                 &__#{$colorName} {
-                    color: getColor($colorName, value);
+                    color: themeColor($colorName, value);
                     @each $variationName in (value, contrast, dark, light) {
                         &--#{$variationName} {
-                            color: getColor($colorName, $variationName);
+                            color: themeColor($colorName, $variationName);
                         }
                     }
                 }
@@ -16,7 +16,7 @@
         &-background {
             @each $backgroundColorName in map-keys($_colors) {
                 &--#{$backgroundColorName} {
-                    background-color: getColor($backgroundColorName, value);
+                    background-color: themeColor($backgroundColorName, value);
                 }
             }
         }

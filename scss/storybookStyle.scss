@@ -2,7 +2,7 @@
 
 .story {
     &--text {
-        border: 1px solid getColor(gray, dark);
+        border: 1px solid themeColor(gray, dark);
         margin: 1em 0;
         padding: 1em;
     }

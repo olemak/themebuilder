@@ -1,4 +1,4 @@
-@function getColor($color: main, $variant: value) {
+@function themeColor($color: main, $variant: value) {
     $selectedColor: map-get($map: $colors, $key: $color);
     @return map-get($map: $selectedColor, $key: $variant);
 }
