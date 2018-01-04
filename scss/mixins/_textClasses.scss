@@ -1,25 +1,45 @@
-@mixin textClasses($_colors: $colors){
+@mixin colors($_colors: $color) {
+    @each $colorName in map-keys($_colors) {
+        &__#{$colorName} {
+            color: themeColor($colorName, value);
+            @each $variationName in (value, contrast, dark, light) {
+                &--#{$variationName} {
+                    color: themeColor($colorName, $variationName);
+                }
+            }
+        }
+    }
+}
 
+@mixin backgroundColors($_colors: $colors) {
+    @each $backgroundColorName in map-keys($_colors) {
+        &__#{$backgroundColorName} {
+            background-color: themeColor($backgroundColorName, value);
+            @each $variationName in (value, contrast, dark, light) {
+                &--#{$variationName} {
+                    background-color: themeColor($backgroundColorName, $variationName);
+                }
+            }
+        }
+    }
+}
+
+
+@mixin textClasses($_colors: $colors){
     .text {
         &-color {
-            @each $colorName in map-keys($_colors) {
-                &__#{$colorName} {
-                    color: themeColor($colorName, value);
-                    @each $variationName in (value, contrast, dark, light) {
-                        &--#{$variationName} {
-                            color: themeColor($colorName, $variationName);
-                        }
-                    }
-                }
-            }
+            @include colors($_colors);
         }
         &-background {
-            @each $backgroundColorName in map-keys($_colors) {
-                &--#{$backgroundColorName} {
-                    background-color: themeColor($backgroundColorName, value);
-                }
-            }
+            @include backgroundColors();
         }
+    }
+
+    .color {
+        @include colors($_colors)
+    }
+    .backgroundColor {
+        @include backgroundColors($_colors)
     }
 }
 
