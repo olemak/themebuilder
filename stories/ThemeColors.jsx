@@ -18,7 +18,7 @@ class ThemeColors extends Component {
                     <span className={ colorClasses + '--' + variant }>
                         {variant}
                     </span>
-                    <div className={ 'backgroundColor__' + color + '--' + variant }>
+                    <div className={ 'background-color__' + color + '--' + variant }>
                         {variant}
                     </div>
                     </div>
