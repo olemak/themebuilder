@@ -1,0 +1,3 @@
+@function themeAspect($aspect: landscape) {
+    @return map-get($map: $aspects, $key: $aspect);
+}

@@ -1,0 +1,3 @@
+@mixin colorAttribute($color: main, $variant: value) {
+    color: themeColor($color, $variant);
+}

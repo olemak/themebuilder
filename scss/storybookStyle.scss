@@ -1,0 +1,45 @@
+@include themeColors();
+
+.story {
+    &--text {
+        border: 1px solid themeColor(gray, dark);
+        margin: 1em 0;
+        padding: 1em;
+    }
+    &--classname {
+        display: inline-block;
+        width: 12em;
+    }
+}
+
+.grid {
+    &--default {
+        @include grid();
+    }
+
+    &__cell {
+        border: 2px solid magenta;
+        background-color: aqua;
+        grid-column-end: span 3;
+        grid-row-end: span 3;
+        &--col-6 {
+            grid-column-start: 3;
+        }
+        &--row-3 {
+            grid-row-start: 3;
+        }
+        &--row-bottom {
+            grid-row-end: bottom;
+        }
+        &--row-top {
+            grid-row-start: top;
+        }
+        &--column-left {
+            grid-column-start: left;
+        }
+        &--column-right {
+            grid-column-end: right;
+        }
+    }
+
+}
