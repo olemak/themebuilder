@@ -9,7 +9,7 @@ class StyleGuide extends Component {
         for (let color in colors) {
             palette.push(<div className="styleguide" >
                 <h4>{color}</h4>
-                <h5>Value: <div className="styleguide__color" style={{backgroundColor: colors[color].value, borderColor: colors[color].contrast}}/></h5>
+                <h5 className="styleguide__color">Value: <div className="styleguide__color-value" style={{backgroundColor: colors[color].value, borderColor: colors[color].contrast}}/></h5>
             </div>)
         }
         return palette;
