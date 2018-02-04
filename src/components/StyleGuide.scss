@@ -1,0 +1,15 @@
+.styleguide {
+    &__color {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 50%;
+        &-value {
+            display: inline-block;
+            height: 1em;
+            width: 1.6em;
+            border-width: 2px;
+            border-style: solid;
+        }
+    }
+}

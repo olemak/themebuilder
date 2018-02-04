@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactJson from 'react-json-view';
 
+import StyleGuide from './StyleGuide.jsx';
+
 class Dashboard extends Component {
 
     downloadJSON(themevariables){
@@ -18,6 +20,8 @@ class Dashboard extends Component {
         return (
             <div className="Dashboard">
                 <h3 className="Dashboard__header">Dashboard</h3>
+                
+                <StyleGuide colors={this.props.state.colors}/>
 
                 <h5>Current theme variables</h5>
                 <ReactJson src={this.props.state} collapsed={true}/>
