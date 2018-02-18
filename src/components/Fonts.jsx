@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import Typography from './Typography'
 import WebFont from 'webfontloader';
 
 import './fonts.css';
+import './fonts-and-typography.scss';
 
 class Fonts extends Component {
     state = {
@@ -47,6 +49,7 @@ class Fonts extends Component {
 
     render() {
         return (
+            <section className="fonts-and-typography">
             <div className="Fonts">
                 <p>Tip: You must know your fonts. Use <a href="//google.fonts/">Google Fonts</a> for details on the available fonts.</p>
                 <datalist id="googleFonts" >
@@ -81,6 +84,10 @@ class Fonts extends Component {
                         </div>
                 </div>:""}
             </div>
+
+            <Typography />
+
+            </section>
         );
     }
 }

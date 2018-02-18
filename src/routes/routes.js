@@ -4,6 +4,7 @@ import ColorContainer from '../components/ColorContainer.js'
 import DashboardContainer from '../components/DashboardContainer.js';
 import FontContainer from '../components/FontContainer.js'
 import SpacingContainer from '../components/SpacingContainer.js';
+import SizeContainer from '../components/SizeContainer.js';
 
 //import Typography from '../components/Typography.jsx';
 
@@ -14,6 +15,7 @@ const routes = () => {
         Dashboard: DashboardContainer,
         Color: ColorContainer,
         Spacing: SpacingContainer, 
+        Sizes: SizeContainer, 
         Aspect: AspectContainer, 
         Breakpoints: BreakpointContainer, 
         Fonts: FontContainer, 
