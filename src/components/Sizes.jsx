@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "./spacing.css"
+import "./sizes.css"
 
 function Size ({name, value, changeSize, prev, next}) {
     return <div className="space">
@@ -17,10 +18,15 @@ function Size ({name, value, changeSize, prev, next}) {
         />
         <output className="space__output" htmlFor={`space-${name}`}>{value.toFixed(1)}</output> 
 
-        <span className="space__visualisation-wrapper space__visualisation-wrapper--em">
-            em: <span className="space__visualisation space__visualisation--em" style={{width: `${value}em`}} />
-        </span>
  </div>
+}
+
+function textSizeExamples(sizes) {
+    let paragraphs = [];
+    for (let size in sizes) {
+        paragraphs.push(<p style={{fontSize: `${sizes[size]*100}%` }}>{`${size}: Superheroic Motorcycle Challengers`}</p>)
+    }
+    return paragraphs;
 }
 
 class Sizes extends Component {
@@ -46,9 +52,12 @@ class Sizes extends Component {
 
     render() {
         return (
-            <div className="Spacing">
+            <div className="Spacing Sizes">
                 <h3 className="Spacing__header">Sizes</h3>
                 {this.paint(this.props.sizes)}
+                <hr />
+                <h3>Title</h3>
+                {textSizeExamples(this.props.sizes)}
             </div>
         );
     }
