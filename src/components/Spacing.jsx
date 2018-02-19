@@ -22,6 +22,9 @@ function Space ({name, value, changeSpace, prev, next}) {
         <span className="space__visualisation-wrapper space__visualisation-wrapper--em">
             em: <span className="space__visualisation space__visualisation--em" style={{width: `${value}em`}} />
         </span>
+        <span className="space__visualisation-wrapper space__visualisation-wrapper--vw">
+            vw*10: <span className="space__visualisation space__visualisation--vw" style={{width: `${value*10}vw`}} />
+        </span>
  </div>
 }
 

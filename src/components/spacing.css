@@ -15,6 +15,10 @@
     display: inline-block;
     width: 5em;
 }
+.space__visualisation-wrapper--vw {
+    display: inline-block;
+    width: 5em;
+}
 
 .space__visualisation {
     display: inline-block;
@@ -28,4 +32,7 @@
 }
 .space__visualisation--em {
     background-color: blue;
+}
+.space__visualisation--vw {
+    background-color: green;
 }
