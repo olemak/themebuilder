@@ -101,15 +101,27 @@ function sizes (state = defaultSizes, action) {
 }
 
 function typography (state = defaultTypography, action) {
+    console.info(action)
     switch (action.type) {
         case CHANGE_PRESET:
-            return Object.assign({}, state[action.name], {
-                [action.propertyName]: action.value 
+            return Object.assign({}, state, {
+                [action.presetName]: Object.assign({}, state[action.presetName], {
+                    [action.parameterName]: action.value 
+            })
             })
         default:
             return state;
     }
 }
+/*
+            return Object.assign({}, state, {
+                [action.name]:  Object.assign({}, state[action.name], {
+                    family: action.font.family,
+                    variants: action.font.variants,
+                    selectedVariants: ["regular"]
+                })
+            });
+*/
 
 
 const themebuilder = combineReducers({

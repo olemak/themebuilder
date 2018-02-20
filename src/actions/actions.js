@@ -39,8 +39,9 @@ export function changeSize(name, value) {
     return { type: CHANGE_SIZE, name, value }
 }
 
-export function changePresetSize(name, parameterName = "size", value) {
-    return { type: CHANGE_PRESET, name, parameterName, value }
+export function changePreset(presetName, parameterName, value) {
+    console.info("Changing preset")
+    return { type: CHANGE_PRESET, presetName, parameterName, value }
 }
 
 // #endregion

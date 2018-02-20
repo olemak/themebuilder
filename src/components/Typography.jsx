@@ -12,31 +12,55 @@ class Typography extends Component {
         this.state = {presetDefaults};
     }
 
+    changePreset = event => {
+        console.log(event.target.name, event.target.value);
+        this.props.changePreset(event.target.id.split('-').shift(), event.target.name, event.target.value)
+    }
+
     toggleShow = event => {
         this.setState({[event.target.id]: !this.state[event.target.id]})
     }
 
-    makeInputs = (preset, sizes) => {
-        let sizeInputs = [];
-        for (let size in sizes){
-            sizeInputs.push(
-                <span>
-                    <input type="radio" id={`${preset}-main-font-size`} name="font-size" value="{size}" />
-                    <label id={`${preset}-main-font-size`}>{size}</label>
-                </span>
+    makeInputs = (preset, ParameterName) => {
+        let inputs = [<span>{`${ParameterName}: `}</span>];
+        let parameterValues;
+        switch (ParameterName) {
+            case 'font':
+                parameterValues = this.props.fonts;
+                break;
+            case 'size':
+                parameterValues = this.props.sizes;
+                break;
+                
+                default:
+                parameterValues = [];
+                break;
+        }
+
+        for (let value in parameterValues){
+            inputs.push (
+                <input type="radio" id={`${preset}-${ParameterName}-${value}`} name={ParameterName} value={value} onChange={this.changePreset}/>
+            )
+            inputs.push (
+                <label id={`${preset}-${ParameterName}-${value}`}>{value}</label>
             )
         }
-        return sizeInputs;
+        return inputs;
     }
 
     render() {
-        console.log(presetInfo);
         return (
             <div className="Typography">
                 {presetInfo.map(preset=><section className="typography__preset" key={preset.id}>
                     
                     <div>
-                        <span className={`preset__sample preset__sample--${preset.id}`}>{preset.name}</span>
+                        <span className={`preset__sample preset__sample--${preset.id}`} style={
+                            {
+                                fontFamily: this.props.fonts[this.props.typography[preset.id].font].family,
+                                weight:     this.props.typography[preset.id].weight,
+                                fontSize:   `${this.props.sizes[this.props.typography[preset.id].size]*100}%`
+                            }
+                            }>{preset.name}</span>
                     </div>
                     <input type="checkbox" onChange={this.toggleShow} id={preset.id} />
                     <label htmlFor={preset.id}>show details</label>
@@ -46,14 +70,10 @@ class Typography extends Component {
                         <p className="preset__description">{preset.description}</p>
                         <form>
                             <div>
-                                <input type="radio" id={`${preset}-main-font-family`} name="font-family" value="main" />
-                                <label id={`${preset}-main-font-family`}>Main Font</label>
-
-                                <input type="radio" id={`${preset}-support-font-family`} name="font-family" value="support" />
-                                <label id={`${preset}-support-font-family`}>Support Font</label>
+                                {this.makeInputs(preset.id, "font")}
                             </div>
                             <div>
-                                {this.makeInputs(preset, this.props.sizes)}
+                                {this.makeInputs(preset.id, "size")}
                             </div>
 
                         </form>
