@@ -21,10 +21,11 @@ class Typography extends Component {
         for (let size in sizes){
             sizeInputs.push(
                 <span>
-                    <input type="radio" id={`${preset}-main-font-size`} name="font-size" value="huge" />
+                    <input type="radio" id={`${preset}-main-font-size`} name="font-size" value="{size}" />
                     <label id={`${preset}-main-font-size`}>{size}</label>
                 </span>
-        )}
+            )
+        }
         return sizeInputs;
     }
 

@@ -6,7 +6,8 @@ import {
   TOGGLE_FONT_VARIATION,
   CHANGE_BREAKPOINT,
   CHANGE_SPACING,
-  CHANGE_SIZE
+  CHANGE_SIZE,
+  CHANGE_PRESET
 } from '../actions/actions'
 import toggleInArray from '../utils/toggleInArray.js'
 
@@ -17,6 +18,7 @@ import defaultFonts from '../data/defaultFonts'
 import defaultBreakpoints from '../data/defaultBreakpoints'
 import defaultSpacing from '../data/defaultSpacing'
 import defaultSizes from '../data/defaultSizes'
+import { defaultTypography } from '../data/defaultTypography.js';
 
 function aspects(state = defaultAspects, action) {
     switch (action.type) {
@@ -98,8 +100,20 @@ function sizes (state = defaultSizes, action) {
     }
 }
 
+function typography (state = defaultTypography, action) {
+    switch (action.type) {
+        case CHANGE_PRESET:
+            return Object.assign({}, state[action.name], {
+                [action.propertyName]: action.value 
+            })
+        default:
+            return state;
+    }
+}
+
+
 const themebuilder = combineReducers({
-  aspects, colors, fonts, breakpoints, spacing, sizes
+  aspects, colors, fonts, breakpoints, spacing, sizes, typography
 })
 
 export default themebuilder

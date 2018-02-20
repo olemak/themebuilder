@@ -6,6 +6,7 @@ export const TOGGLE_FONT_VARIATION = 'TOGGLE_FONT_VARIATION'
 export const CHANGE_BREAKPOINT = 'CHANGE_BREAKPOINT'
 export const CHANGE_SPACING = 'CHANGE_SPACING'
 export const CHANGE_SIZE = 'CHANGE_SIZE'
+export const CHANGE_PRESET = 'CHANGE_PRESET'
 // #endregion
 
 
@@ -36,6 +37,10 @@ export function changeSpacing(name, value) {
 
 export function changeSize(name, value) {
     return { type: CHANGE_SIZE, name, value }
+}
+
+export function changePresetSize(name, parameterName = "size", value) {
+    return { type: CHANGE_PRESET, name, parameterName, value }
 }
 
 // #endregion

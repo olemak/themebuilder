@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import TypographyContainer from './TypographyContainer'
 import WebFont from 'webfontloader';
 
 import './fonts.css';

@@ -1,7 +1,6 @@
 /* eslint no-unused-expressions: 0 */
-import { connect } from 'react-redux'
-
-import {changeFont, toggleFontVariation} from '../actions/actions'
+import { connect } from 'react-redux';
+import {changeFont, toggleFontVariation} from '../actions/actions';
 
 // COMPONENTS
 import Typography from './Typography.jsx';
@@ -9,7 +8,8 @@ import Typography from './Typography.jsx';
 const mapStateToProps = state => {
   return {
     fonts: state.fonts,
-    sizes: state.sizes
+    sizes: state.sizes,
+    typography: state.typography
   }
 }
 
