@@ -40,7 +40,6 @@ export function changeSize(name, value) {
 }
 
 export function changePreset(presetName, parameterName, value) {
-    console.info("Changing preset")
     return { type: CHANGE_PRESET, presetName, parameterName, value }
 }
 

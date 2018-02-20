@@ -2,12 +2,12 @@ const defaultFonts = {
     main: {
         family:     "Comfortaa",
         variants:   ["regular"],
-        selectedVariants: []
+        selectedVariants: ["regular"]
     },
     support: {
         family:     "sans-serif",
         variants:   ["regular"],
-        selectedVariants: []
+        selectedVariants: ["regular"]
     }
 }
 

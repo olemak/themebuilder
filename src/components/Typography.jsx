@@ -13,7 +13,6 @@ class Typography extends Component {
     }
 
     changePreset = event => {
-        console.log(event.target.name, event.target.value);
         this.props.changePreset(event.target.id.split('-').shift(), event.target.name, event.target.value)
     }
 
@@ -21,31 +20,60 @@ class Typography extends Component {
         this.setState({[event.target.id]: !this.state[event.target.id]})
     }
 
-    makeInputs = (preset, ParameterName) => {
-        let inputs = [<span>{`${ParameterName}: `}</span>];
+    makeInputs = (preset, parameterName, fontVariation = false) => {
+        let inputs = [<span key={`${preset}-${parameterName}`}>{`${parameterName}: `}</span>];
         let parameterValues;
-        switch (ParameterName) {
+        switch (parameterName) {
             case 'font':
-                parameterValues = this.props.fonts;
-                break;
+            parameterValues = this.props.fonts;
+            break;
             case 'size':
-                parameterValues = this.props.sizes;
-                break;
-                
-                default:
-                parameterValues = [];
-                break;
+            parameterValues = this.props.sizes;
+            break;
+            case 'weight':
+            parameterValues = this.props.fonts[fontVariation].selectedVariants.sort();
+            break;
+            
+            default:
+            parameterValues = [];
+            break;
         }
 
         for (let value in parameterValues){
+            let returnValue = fontVariation ? parameterValues[value] : value;
             inputs.push (
-                <input type="radio" id={`${preset}-${ParameterName}-${value}`} name={ParameterName} value={value} onChange={this.changePreset}/>
+                <input 
+                    type="radio" 
+                    id={`${preset}-${parameterName}-${value}`} 
+                    name={parameterName} 
+                    value={returnValue} 
+                    onChange={this.changePreset} 
+                    key={`${preset}-${parameterName}-${value}-input`}
+                />
             )
             inputs.push (
-                <label id={`${preset}-${ParameterName}-${value}`}>{value}</label>
+                <label 
+                    id={`${preset}-${parameterName}-${value}`} 
+                    key={`${preset}-${parameterName}-${value}-label`}
+                >{returnValue}</label>
             )
         }
         return inputs;
+    }
+
+    calculatedStyle = preset => {
+        let weightString = this.props.typography[preset.id].weight;
+        let italicStartIndex = weightString.toString().search("italic");
+        let isItalic = italicStartIndex > -1;
+        
+        let styleObject = {
+            fontStyle: isItalic ? "italic" : "normal",
+            fontWeight: isItalic ? weightString.slice(0, 3) : weightString === 'regular' ? 400 : weightString,
+            fontFamily: this.props.fonts[this.props.typography[preset.id].font].family,
+            fontSize:   `${this.props.sizes[this.props.typography[preset.id].size]*100}%`
+        }
+
+        return styleObject;
     }
 
     render() {
@@ -55,11 +83,7 @@ class Typography extends Component {
                     
                     <div>
                         <span className={`preset__sample preset__sample--${preset.id}`} style={
-                            {
-                                fontFamily: this.props.fonts[this.props.typography[preset.id].font].family,
-                                weight:     this.props.typography[preset.id].weight,
-                                fontSize:   `${this.props.sizes[this.props.typography[preset.id].size]*100}%`
-                            }
+                            this.calculatedStyle(preset)
                             }>{preset.name}</span>
                     </div>
                     <input type="checkbox" onChange={this.toggleShow} id={preset.id} />
@@ -74,6 +98,9 @@ class Typography extends Component {
                             </div>
                             <div>
                                 {this.makeInputs(preset.id, "size")}
+                            </div>
+                            <div>
+                                {this.makeInputs(preset.id, "weight", this.props.typography[preset.id].font)}
                             </div>
 
                         </form>
