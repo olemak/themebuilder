@@ -6,7 +6,7 @@ import FaEdit from 'react-icons/lib/fa/pencil';
 class ColorVariation extends Component {
     state = {
         pickerVisible: false,
-        moveValue: 50
+        moveValue: "around"
     }
 
     handleColorChangeComplete = color => {
@@ -25,7 +25,7 @@ class ColorVariation extends Component {
     
     toggleMove = () => {
         this.setState({
-            moveValue: this.state.moveValue === 50 ? 1 : 50
+            moveValue: this.state.moveValue === "around" ? "between" : "around"
         })
     }
 
@@ -39,17 +39,14 @@ class ColorVariation extends Component {
                 onClick={this.togglePicker}    
             />
             {this.state.pickerVisible ? 
-                <div className="color-picker__wrapper">
-                    <div 
-                        className="color-picker__inner"  
-                        style={ 
-                            {
-                                marginTop: `${this.state.moveValue}%`, 
-                                marginLeft: `${this.state.moveValue}%`,
-                                transform: `translate(-${this.state.moveValue}%, -${this.state.moveValue}%)`
-                            } 
+                <div className="color-picker__wrapper"
+                style={
+                        {
+                            justifyContent: `space-${this.state.moveValue}`
                         }
-                    >
+                    }
+                >
+                    <div className="color-picker__inner">
                         <h3 className="color-picker__title">{`Edit ${this.props.colorName} ${this.props.variation}`}</h3>
                         <SketchPicker
                             color={this.props.colorValue} 
@@ -57,12 +54,12 @@ class ColorVariation extends Component {
                             disableAlpha={true}
                         />
                         <button
-                            className="color-picker__move-button" 
+                            className="color-picker__button color-picker__button--move" 
                             onClick={this.toggleMove}>
-                                move
+                                { this.state.moveValue === "around" ? "move left" : "center" }
                         </button>
                         <button
-                            className="color-picker__close-button" 
+                            className="color-picker__button color-picker__button--close" 
                             onClick={this.togglePicker}>
                                 close
                         </button>

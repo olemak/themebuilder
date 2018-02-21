@@ -63,13 +63,17 @@
     right: 0;
     bottom: 0;
     left: 0;
-    filter: drop-shadow(0 0 5em black)       
+    filter: drop-shadow(0 0 5em black);
+    display: flex;
 }
 .color-picker__inner {
     width: 320px;
     width: fit-content;
     background-color: white;
     padding: 0.5em;
+    align-self: center;
+    display: grid;
+
 }
 .color-picker__title {
     text-align: center;
@@ -80,21 +84,13 @@
     margin-right: auto;
 }
 
-.color-picker__move-button {
+
+.color-picker__button {
     margin-top: 1em;
-    position: absolute;
-    left: 0;
     border: none;
     background-color: white;
     padding: 0.3em 0.7em 0.45em;
     font-size: 80%;
-}
-.color-picker__close-button {
-    margin-top: 1em;
-    position: absolute;
-    right: 0;
-    border: none;
-    background-color: white;
-    padding: 0.3em 0.7em 0.45em;
-    font-size: 80%;
+    cursor: pointer;
+    border: 1px solid black;
 }
