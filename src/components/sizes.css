@@ -1,0 +1,3 @@
+.Sizes {
+    font-size: calc(1vw + 1vh + .5vmin);
+}

@@ -1,0 +1,16 @@
+@mixin themeColors($attributes: ("color", "background-color"), $_colors: $colors) {
+    @each $attribute in $attributes {       
+        .#{$attribute} {
+            @each $colorName in map-keys($_colors) {
+                &__#{$colorName} {
+                    #{$attribute}: themeColor($colorName, value);
+                    @each $variationName in map-keys(map-get($_colors, $colorName)) {
+                        &--#{$variationName} {
+                            #{$attribute}: themeColor($colorName, $variationName);
+                        }
+                    }
+                }
+            }
+        }   
+    }
+}

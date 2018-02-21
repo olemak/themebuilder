@@ -18,7 +18,6 @@ class Dashboard extends Component {
         return (
             <div className="Dashboard">
                 <h3 className="Dashboard__header">Dashboard</h3>
-
                 <h5>Current theme variables</h5>
                 <ReactJson src={this.props.state} collapsed={true}/>
                 

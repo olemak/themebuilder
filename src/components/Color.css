@@ -3,8 +3,10 @@
     height: 18vmax;
     min-height: 200px;    
     grid-gap: 0.2em !important;
-    min-width: 320px;
-    max-width: 20em;
+    width: 320px;
+}
+.Color svg {
+    cursor: pointer;
 }
 
 .Color .color__colorpicker {
@@ -12,11 +14,8 @@
 }
 
 .color {
-    display: flex;
-    justify-content: space-between;
-    align-content: flex-end;
-    padding: 0.4em;
-    position: relative;
+    display: grid;
+    padding: 0.3em;
 }
 
 .color--value {
@@ -46,14 +45,52 @@
 }
 
 .color__warning {
-    position: absolute;
-    bottom: 0;
-    right: 0.5em;
-    left: 0.5em;
-    padding: 0.2em 0.5em;
+    flex: 1 1 auto;
+    align-self: flex-end;
+    padding: 0.4em 0.5em 0.2em 0.5em;
+    margin-bottom: 0;
 
     font-size: 0.5em;
     background-color: white;
     opacity: 0.8;
     color: red;
+}
+
+.color-picker__wrapper {
+    z-index: 10000;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    filter: drop-shadow(0 2em 1em black);
+    display: flex;
+}
+.color-picker__inner {
+    width: 320px;
+    width: fit-content;
+    background-color: white;
+    padding: 0.5em;
+    align-self: center;
+    display: grid;
+    border: 1px solid black;
+}
+.color-picker__title {
+    text-align: center;
+}
+
+.sketch-picker {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.color-picker__button {
+    margin-top: 1em;
+    border: none;
+    background-color: white;
+    padding: 0.3em 0.7em 0.45em;
+    font-size: 80%;
+    cursor: pointer;
+    border: 1px solid black;
 }

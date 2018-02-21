@@ -1,0 +1,18 @@
+@mixin grid-rows($type: null, $row-count: 12, $row-gap: 0) {
+    @if ($type and $type == even) {
+        $row-height: percentage((100/$row-count) - $row-gap)/100;
+        grid-template-rows: [top] repeat($row-count, minmax($row-height, 1fr)) [bottom];
+    }
+    @if ($row-gap > 0) {
+        grid-row-gap: percentage($row-gap/100);
+    }
+}
+
+@mixin grid($column-gap: 2, $type: null, $row-count: 12, $row-gap: 0) {
+    @supports(display: grid) {
+        display: grid;
+        grid-template-columns: [left] repeat(12, minmax(percentage($number: (8.33333-$column-gap)/100), 1fr)) [right];
+        @include grid-rows($type: $type, $row-count: $row-count, $row-gap: $row-gap);
+        grid-column-gap: percentage($number: $column-gap/100);
+    }
+}

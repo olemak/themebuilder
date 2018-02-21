@@ -1,13 +1,13 @@
 const defaultFonts = {
     main: {
-        family:     "Select your main font",
+        family:     "Comfortaa",
         variants:   ["regular"],
-        selectedVariants: []
+        selectedVariants: ["regular"]
     },
     support: {
-        family:     "Optional support font",
-        variants:   [],
-        selectedVariants: []
+        family:     "sans-serif",
+        variants:   ["regular"],
+        selectedVariants: ["regular"]
     }
 }
 
