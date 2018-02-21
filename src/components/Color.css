@@ -63,7 +63,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    filter: drop-shadow(0 0 5em black);
+    filter: drop-shadow(0 2em 1em black);
     display: flex;
 }
 .color-picker__inner {
