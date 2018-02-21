@@ -24,7 +24,7 @@ function Size ({name, value, changeSize, prev, next}) {
 function textSizeExamples(sizes) {
     let paragraphs = [];
     for (let size in sizes) {
-        paragraphs.push(<p style={{fontSize: `${sizes[size]*100}%` }}>{`${size}: Superheroic Motorcycle Challengers`}</p>)
+        paragraphs.push(<p style={{fontSize: `${sizes[size]*100}%` }} key={size}>{`${size}: Superheroic Motorcycle Challengers`}</p>)
     }
     return paragraphs;
 }
