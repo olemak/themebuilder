@@ -1,5 +1,7 @@
 #Themebuilder
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d48e8dd9ef9d41349460f334933c3ae6)](https://app.codacy.com/app/olemak/themebuilder?utm_source=github.com&utm_medium=referral&utm_content=olemak/themebuilder&utm_campaign=badger)
+
 A simple way for non-coders to specify neccecary theme variables like color values, aspects, fonts etc.
 Variables are structured in a standardiszed format, suitable for exported in as a json format
 Exported JSONs may be imported by SCSS or post-css projects
