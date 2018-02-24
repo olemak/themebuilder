@@ -2,9 +2,14 @@
     grid-column: auto / span 3;
     height: 18vmax;
     min-height: 200px;
-    grid-gap: 0.2em !important;
+    grid-gap: 0.2em;
     width: 320px;
 }
+
+.Palette .Color {
+    grid-gap: 0.2em;
+}
+
 .Color svg {
     cursor: pointer;
 }

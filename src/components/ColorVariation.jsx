@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { SketchPicker } from "react-color";
+import ColorPicker from "./ColorPicker";
 import { getContrast } from "../utils/contrastRatio.js";
 import FaEdit from "react-icons/lib/fa/pencil";
 
@@ -44,39 +44,17 @@ class ColorVariation extends Component {
                     onClick={this.togglePicker}
                 />
                 {this.state.pickerVisible ? (
-                    <div
-                        className="color-picker__wrapper"
-                        style={{
-                            justifyContent: `space-${this.state.moveValue}`
-                        }}
-                    >
-                        <div className="color-picker__inner">
-                            <h3 className="color-picker__title">{`Edit ${
-                                this.props.colorName
-                            } ${this.props.variation}`}</h3>
-                            <SketchPicker
-                                color={this.props.colorValue}
-                                onChangeComplete={
-                                    this.handleColorChangeComplete
-                                }
-                                disableAlpha={true}
-                            />
-                            <button
-                                className="color-picker__button color-picker__button--move"
-                                onClick={this.toggleMove}
-                            >
-                                {this.state.moveValue === "around"
-                                    ? "move left"
-                                    : "center"}
-                            </button>
-                            <button
-                                className="color-picker__button color-picker__button--close"
-                                onClick={this.togglePicker}
-                            >
-                                close
-                            </button>
-                        </div>
-                    </div>
+                    <ColorPicker
+                        colorValue={this.props.colorValue}
+                        colorName={this.props.colorName}
+                        variation={this.props.variation}
+                        handleColorChangeComplete={
+                            this.handleColorChangeComplete
+                        }
+                        togglePicker={this.togglePicker}
+                        moveValue={this.state.moveValue}
+                        toggleMove={this.toggleMove}
+                    />
                 ) : (
                     ""
                 )}
