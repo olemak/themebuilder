@@ -5,7 +5,7 @@ const defaultAspects = {
     square: 1.0,
     portrait: 1.3,
     tall: 2.0,
-    skyscraper: 4.0,
+    skyscraper: 4.0
 };
 
 export default defaultAspects;

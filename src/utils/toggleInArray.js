@@ -9,5 +9,4 @@ function toggleInArray(haystack, needle) {
     return haystack;
 }
 
-
 export default toggleInArray;
