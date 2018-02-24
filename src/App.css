@@ -1,45 +1,52 @@
-@import url('https://fonts.googleapis.com/css?family=Comfortaa:400,700');
+@import url("https://fonts.googleapis.com/css?family=Comfortaa:400,700");
 body {
-    font-family: 'Comfortaa', cursive, serif;    
+    font-family: "Comfortaa", cursive, serif;
     padding: 0 1vw;
     font-size: 18px;
-    font-size: calc(18px + 0.4vw);    
+    font-size: calc(18px + 0.4vw);
 }
 
-
-h1, h2, h3, h4, h5, h6, p, small {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+small {
     margin-top: 0.2em;
     margin-bottom: 0.3em;
     max-width: 28em;
 }
 
-p { margin-bottom: 0.8em; }
-
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-gap: 1em;
-  grid-template-rows: [header] 2em [body] auto [footer] auto [end];
+p {
+    margin-bottom: 0.8em;
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 1em;
+    grid-template-rows: [header] 2em [body] auto [footer] auto [end];
+}
 
 .grid-header {
-  grid-row: header;
-  grid-column: 1 / span 12;
+    grid-row: header;
+    grid-column: 1 / span 12;
 }
 
 .header__nav {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  margin: 0 -0.5em;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin: 0 -0.5em;
 }
 .header__nav a {
-  padding: 0.2em 0.5em;
+    padding: 0.2em 0.5em;
 }
 
 @media (min-width: 640px) {
-  .header__nav {
-    padding-right: 0.2em;
-  }
+    .header__nav {
+        padding-right: 0.2em;
+    }
 }

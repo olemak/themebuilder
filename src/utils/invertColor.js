@@ -1,10 +1,10 @@
 const invertColor = hexnum => {
-    if(hexnum[0] === "#") {
-    hexnum = hexnum.substr(1);
+    if (hexnum[0] === "#") {
+        hexnum = hexnum.substr(1);
     }
-    if(hexnum.length !== 6) {
-    console.error("Hex color must be six hex numbers in length.");
-    return false;
+    if (hexnum.length !== 6) {
+        console.error("Hex color must be six hex numbers in length.");
+        return false;
     }
 
     hexnum = hexnum.toUpperCase();
@@ -19,17 +19,19 @@ const invertColor = hexnum => {
     complexnum.E = "1";
     complexnum.F = "0";
 
-    for(let i=0; i<6; i++){
-    if(!isNaN(splitnum[i])) {
-        resultnum += simplenum[splitnum[i]]; 
-    } else if(complexnum[splitnum[i]]){
-        resultnum += complexnum[splitnum[i]]; 
-    } else {
-        console.error("Hex colors must only include hex numbers 0-9, and A-F");
-        return false;
+    for (let i = 0; i < 6; i++) {
+        if (!isNaN(splitnum[i])) {
+            resultnum += simplenum[splitnum[i]];
+        } else if (complexnum[splitnum[i]]) {
+            resultnum += complexnum[splitnum[i]];
+        } else {
+            console.error(
+                "Hex colors must only include hex numbers 0-9, and A-F"
+            );
+            return false;
+        }
     }
-    }      
     return resultnum;
-}
+};
 
 export default invertColor;

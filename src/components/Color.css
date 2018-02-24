@@ -1,7 +1,7 @@
 .Color {
     grid-column: auto / span 3;
     height: 18vmax;
-    min-height: 200px;    
+    min-height: 200px;
     grid-gap: 0.2em !important;
     width: 320px;
 }
@@ -37,7 +37,6 @@
     grid-column: 9 / end;
     grid-row: 3 / 4;
 }
-
 
 .color__name {
     grid-row: header;
@@ -83,7 +82,6 @@
     margin-left: auto;
     margin-right: auto;
 }
-
 
 .color-picker__button {
     margin-top: 1em;

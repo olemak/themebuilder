@@ -1,9 +1,7 @@
 .Fonts {
-
 }
 
 .font {
-
 }
 
 .font-variant__wrapper {
@@ -15,7 +13,6 @@
     flex: 1 1 70%;
     max-width: 100%;
 }
-
 
 .font-variant__input {
     height: 2em;

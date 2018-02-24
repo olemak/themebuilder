@@ -4,7 +4,8 @@
         "name": "Main Header",
         "sample": "Motorcyclist's handgloves",
         "intro": "Your typical H1.",
-        "description": "Semantically, the most important thing on the \"page\". SEO tip: only one main header per page; this is most often used for the \"Name of the page\".",
+        "description":
+            "Semantically, the most important thing on the \"page\". SEO tip: only one main header per page; this is most often used for the \"Name of the page\".",
         "default": {
             "font": "main",
             "size": "huge",
@@ -40,7 +41,8 @@
         "name": "Emphasis",
         "sample": "Motorcyclist's handgloves should be both sturdy and stylish",
         "intro": "Makes body text stand out. ",
-        "description": "Used for emphasis, often on quotes, links and other important points",
+        "description":
+            "Used for emphasis, often on quotes, links and other important points",
         "default": {
             "font": "support",
             "size": "medium",
@@ -50,21 +52,25 @@
     {
         "id": "paragraph",
         "name": "Paragraph",
-        "sample": "Motorcyclist's handgloves should be both sturdy and stylish, but never at the expense of protective qualities.",
+        "sample":
+            "Motorcyclist's handgloves should be both sturdy and stylish, but never at the expense of protective qualities.",
         "intro": "Regular body text.",
-        "description": "Your bread and butter \"body\" copy typographym usually used in paragraphs and everything else.",
+        "description":
+            "Your bread and butter \"body\" copy typographym usually used in paragraphs and everything else.",
         "default": {
             "font": "support",
             "size": "medium",
-            "weight":400
+            "weight": 400
         }
     },
     {
         "id": "fineprint",
         "name": "Fineprint",
-        "sample": "Motorcyclist's handgloves manufacturers have no liability in terms of termination of contract upon aforesaid hangloves should come into contact with any manner, leagel or not, that negates the wording of this contract.",
+        "sample":
+            "Motorcyclist's handgloves manufacturers have no liability in terms of termination of contract upon aforesaid hangloves should come into contact with any manner, leagel or not, that negates the wording of this contract.",
         "intro": "The small stuff",
-        "description": "Often used for legal details, generally wrapped in a \"small\" tag. Please remember that even for the small stuff, accessibility is still important!",
+        "description":
+            "Often used for legal details, generally wrapped in a \"small\" tag. Please remember that even for the small stuff, accessibility is still important!",
         "default": {
             "font": "support",
             "size": "small",
@@ -72,7 +78,3 @@
         }
     }
 ]
-
-
-
-

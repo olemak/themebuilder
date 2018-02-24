@@ -1,16 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import './StyleGuide.scss';
+import "./StyleGuide.scss";
 
 class StyleGuide extends Component {
-
-    styleGuide(colors){
+    styleGuide(colors) {
         let palette = [];
         for (let color in colors) {
-            palette.push(<div className="styleguide" >
-                <h4>{color}</h4>
-                <h5 className="styleguide__color">Value: <div className="styleguide__color-value" style={{backgroundColor: colors[color].value, borderColor: colors[color].contrast}}/></h5>
-            </div>)
+            palette.push(
+                <div className="styleguide">
+                    <h4>{color}</h4>
+                    <div
+                        className="styleguide__color styleguide__color--value"
+                        style={{ backgroundColor: colors[color].value }}
+                    />
+                    <div
+                        className="styleguide__color styleguide__color--contrast"
+                        style={{ backgroundColor: colors[color].value }}
+                    />
+                </div>
+            );
         }
         return palette;
     }
@@ -24,7 +32,6 @@ class StyleGuide extends Component {
                 <section className="grid">
                     {this.styleGuide(this.props.colors)}
                 </section>
-
             </div>
         );
     }
