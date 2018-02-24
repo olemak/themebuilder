@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import routes from './routes/routes.js'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import routes from './routes/routes.js';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux'
-import themebuilder from './reducers/reducers'
+import { createStore } from 'redux';
+import themebuilder from './reducers/reducers';
 
 import './App.css';
 
