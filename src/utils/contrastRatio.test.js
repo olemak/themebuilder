@@ -1,7 +1,6 @@
 import {
     hexToRgb,
     luminance,
-    comparison,
     contrast,
     getContrast
 } from "./contrastRatio";
