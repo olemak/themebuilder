@@ -1,5 +1,7 @@
 function hexToRgb(hex) {
-    if (hex.charAt(0) === "#") hex = hex.slice(1);
+    if (hex.charAt(0) === "#") {
+        hex = hex.slice(1);
+    }
 
     const splitValues = hex.substring(0).split("");
     const red = splitValues[0] + splitValues[1];
