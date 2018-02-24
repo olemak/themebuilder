@@ -48,7 +48,9 @@ class ColorVariation extends Component {
                         colorValue={this.props.colorValue}
                         colorName={this.props.colorName}
                         variation={this.props.variation}
-                        onChangeComplete={this.handleColorChangeComplete}
+                        handleColorChangeComplete={
+                            this.handleColorChangeComplete
+                        }
                         togglePicker={this.togglePicker}
                         moveValue={this.state.moveValue}
                         toggleMove={this.toggleMove}
