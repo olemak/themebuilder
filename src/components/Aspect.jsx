@@ -8,7 +8,9 @@ class Aspect extends Component {
     }
 
     greatestCommonDivisor(height, width) {
-        if (width === 0) return height;
+        if (width === 0) {
+            return height;
+        }
         return this.greatestCommonDivisor(width, height % width);
     }
 
