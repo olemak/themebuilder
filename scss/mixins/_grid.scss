@@ -9,9 +9,12 @@
 }
 
 @mixin grid($column-gap: 2, $type: null, $row-count: 12, $row-gap: 0) {
-    @supports(display: grid) {
+    @supports (display: grid) {
         display: grid;
-        grid-template-columns: [left] repeat(12, minmax(percentage($number: (8.33333-$column-gap)/100), 1fr)) [right];
+        grid-template-columns: [left] repeat(
+                12,
+                minmax(percentage($number: (8.33333-$column-gap)/100), 1fr)
+            ) [right];
         @include grid-rows($type: $type, $row-count: $row-count, $row-gap: $row-gap);
         grid-column-gap: percentage($number: $column-gap/100);
     }

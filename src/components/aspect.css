@@ -10,7 +10,7 @@
     width: 300px;
     border: 1px solid red;
     position: relative;
-    
+
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -20,9 +20,9 @@
 
 .mini-aspects {
     width: 230px;
-    width: fit-content;    
+    width: fit-content;
     position: fixed;
-    
+
     right: 0;
     top: 1em;
 
@@ -33,7 +33,6 @@
 .mini-aspects__aspect {
     border: 1px solid blue;
     width: 1em;
-
 }
 
 @media (max-width: 640px) {
