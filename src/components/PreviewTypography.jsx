@@ -15,7 +15,7 @@ class PreviewTypography extends PureComponent {
         return (
             <div>
                 {Object.keys(this.props.typography).map(presetName => (
-                    <div>
+                    <div key={`preview-typograph-${presetName}`}>
                         <span
                             className="preview__preset"
                             style={calculatedTextStyle(
