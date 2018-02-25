@@ -37,4 +37,14 @@
         width: 50%;
         text-align: center;
     }
+
+    &__typography {
+        flex: 1 1 auto;
+        min-width: 320px;
+    }
+
+    &__sizes {
+        flex: 1 1 auto;
+        min-width: 320px;
+    }
 }

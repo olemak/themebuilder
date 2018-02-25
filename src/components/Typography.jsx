@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import presetInfo from "../data/presetInfo.json";
+import { calculatedTextStyle } from "../utils/calculatedTextStyle";
 import "./typography.css";
 const presetDefaults = {};
 
@@ -72,26 +73,6 @@ class Typography extends Component {
         return inputs;
     };
 
-    calculatedStyle = preset => {
-        let weightString = this.props.typography[preset.id].weight;
-        let italicStartIndex = weightString.toString().search("italic");
-        let isItalic = italicStartIndex > -1;
-
-        let styleObject = {
-            fontStyle: isItalic ? "italic" : "normal",
-            fontWeight: isItalic
-                ? weightString.slice(0, 3)
-                : weightString === "regular" ? 400 : weightString,
-            fontFamily: this.props.fonts[this.props.typography[preset.id].font]
-                .family,
-            fontSize: `${this.props.sizes[
-                this.props.typography[preset.id].size
-            ] * 100}%`
-        };
-
-        return styleObject;
-    };
-
     render() {
         return (
             <div className="Typography">
@@ -102,7 +83,12 @@ class Typography extends Component {
                                 className={`preset__sample preset__sample--${
                                     preset.id
                                 }`}
-                                style={this.calculatedStyle(preset)}
+                                style={calculatedTextStyle(
+                                    preset.id,
+                                    this.props.fonts,
+                                    this.props.typography,
+                                    this.props.sizes
+                                )}
                             >
                                 {preset.name}
                             </span>

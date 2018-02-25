@@ -21,7 +21,12 @@ class Dashboard extends Component {
     render() {
         return (
             <div className="Dashboard">
-                <Preview colors={this.props.state.colors} />
+                <Preview
+                    colors={this.props.state.colors}
+                    typography={this.props.state.typography}
+                    sizes={this.props.state.sizes}
+                    fonts={this.props.state.fonts}
+                />
                 <h5>Current theme variables</h5>
                 <ReactJson src={this.props.state} collapsed={true} />
                 <br />

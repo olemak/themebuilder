@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import { PreviewColors } from "./PreviewColors";
+import { PreviewTypography } from "./PreviewTypography";
 import "./preview.scss";
 
 class Preview extends Component {
@@ -14,11 +15,15 @@ class Preview extends Component {
                         colors={this.props.colors}
                     />
 
-                    <section>
-                        <h3>Typography</h3>
-                    </section>
-                    <section>
-                        <h3>Chunks of something</h3>
+                    <PreviewTypography
+                        className="preview__typography"
+                        typography={this.props.typography}
+                        sizes={this.props.sizes}
+                        fonts={this.props.fonts}
+                    />
+
+                    <section className="preview__sizes">
+                        <h3>Sizes</h3>
                     </section>
                 </div>
             </div>
