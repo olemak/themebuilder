@@ -1,11 +1,9 @@
 import React, { PureComponent } from "react";
 import PreviewColorSingle from "./PreviewColorSingle";
 import { getFromObject } from "../utils/getFromObject";
-import { For } from "react-extras";
 
 class PreviewColors extends PureComponent {
     render() {
-        /* eslint-disable */
         return (
             <section className="preview__colors">
                 <div className="preview__colors--color">
@@ -47,10 +45,9 @@ class PreviewColors extends PureComponent {
                             key={`preview-functional-${color.name}`}
                         />
                     ))}
-                </div>{" "}
+                </div>
             </section>
         );
-        /* eslint-ensable */
     }
 }
 
