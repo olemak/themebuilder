@@ -1,0 +1,50 @@
+.preview {
+    display: flex;
+    flex-flow: row wrap;
+
+    &__colors {
+        flex: 1 1 auto;
+        width: 320px;
+        display: flex;
+        flex-flow: column nowrap;
+        &--color,
+        &--monochrome,
+        &--functional {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            margin-bottom: 1em;
+        }
+    }
+
+    &__color {
+        width: 6em;
+        height: 6em;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__monochrome {
+        flex: 1 1 auto;
+        width: 30%;
+        text-align: center;
+    }
+
+    &__functional {
+        flex: 1 1 auto;
+        width: 50%;
+        text-align: center;
+    }
+
+    &__typography {
+        flex: 1 1 auto;
+        min-width: 320px;
+    }
+
+    &__sizes {
+        flex: 1 1 auto;
+        min-width: 320px;
+    }
+}
