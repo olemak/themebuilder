@@ -77,6 +77,22 @@ class ColorVariation extends Component {
                 ) : (
                     ""
                 )}
+
+                <div
+                    className="color__details"
+                    style={{
+                        color: `${
+                            this.props.variation === "contrast"
+                                ? this.props.color.value
+                                : this.props.color.contrast
+                        }`
+                    }}
+                >
+                    <h5>{this.props.variation}</h5>
+                    <small className="color__value">
+                        {this.props.color[this.props.variation]}
+                    </small>
+                </div>
             </div>
         );
     }

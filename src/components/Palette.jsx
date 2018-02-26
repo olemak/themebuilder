@@ -12,26 +12,6 @@ import shadeColor from "../utils/shadeColor.js";
 import "./Palette.css";
 
 class Palette extends Component {
-    componentWillMount() {
-        for (let color in this.props.colors) {
-            this.props.changeColor(
-                color,
-                "contrast",
-                invertColor(this.props.colors[color].value)
-            );
-            this.props.changeColor(
-                color,
-                "light",
-                shadeColor(this.props.colors[color].value, 25)
-            );
-            this.props.changeColor(
-                color,
-                "dark",
-                shadeColor(this.props.colors[color].value, -25)
-            );
-        }
-    }
-
     paint(colors) {
         let colorElements = [];
         for (let color in colors) {
@@ -50,7 +30,6 @@ class Palette extends Component {
     render() {
         return (
             <section className="Palette">
-                <h3 className="palette__header">Palette</h3>
                 {this.paint(this.props.colors)}
             </section>
         );
