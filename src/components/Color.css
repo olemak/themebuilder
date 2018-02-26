@@ -24,6 +24,21 @@
     padding: 0.3em;
 }
 
+.color:hover .color__details {
+    opacity: 1;
+    transition: opacity 0.75s;
+}
+
+.color__value {
+    font-size: 70%;
+}
+
+.color__details {
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.75s;
+}
+
 .color--value {
     grid-column: 1 / 5;
     grid-row: 2 / 4;
