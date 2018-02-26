@@ -4,6 +4,7 @@
     min-height: 200px;
     grid-gap: 0.2em;
     width: 320px;
+    padding: 0 2em 2em 0;
 }
 
 .Palette .Color {

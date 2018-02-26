@@ -1,6 +1,5 @@
 .Palette {
     display: flex;
-    flex-flow: column nowrap;
     flex-flow: row wrap;
     justify-content: space-between;
     justify-content: space-evenly;
