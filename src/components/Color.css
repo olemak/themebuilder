@@ -4,6 +4,7 @@
     min-height: 200px;
     grid-gap: 0.2em;
     width: 320px;
+    padding: 0 2em 2em 0;
 }
 
 .Palette .Color {
@@ -21,6 +22,21 @@
 .color {
     display: grid;
     padding: 0.3em;
+}
+
+.color:hover .color__details {
+    opacity: 1;
+    transition: opacity 0.75s;
+}
+
+.color__value {
+    font-size: 70%;
+}
+
+.color__details {
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.75s;
 }
 
 .color--value {

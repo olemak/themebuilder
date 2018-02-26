@@ -1,15 +1,41 @@
 .styleguide {
-    &__color {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    .color {
+        min-width: 33%;
+    }
+
+    &-color {
         display: flex;
-        align-items: center;
         justify-content: space-between;
-        width: 50%;
-        &-value {
-            display: inline-block;
-            height: 1em;
-            width: 1.6em;
-            border-width: 2px;
-            border-style: solid;
+        align-items: center;
+        padding: 0.2em;
+
+        &__value {
+            width: 2em;
+            height: 2em;
+            border-radius: 50%;
+        }
+    }
+    &-monochrome {
+        display: flex;
+
+        &__value {
+            flex: 1 1 auto;
+            width: 33%;
+            height: 2em;
+        }
+    }
+    &-functional {
+        display: flex;
+        flex-wrap: wrap;
+
+        &__value {
+            flex: 1 1 auto;
+            width: 50%;
+            height: 2em;
         }
     }
 }
