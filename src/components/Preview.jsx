@@ -22,9 +22,7 @@ class Preview extends Component {
                         fonts={this.props.fonts}
                     />
 
-                    <section className="preview__sizes">
-                        <h3>Sizes</h3>
-                    </section>
+                    <section className="preview__sizes" />
                 </div>
             </div>
         );
