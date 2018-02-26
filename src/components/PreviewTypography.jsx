@@ -13,7 +13,7 @@ class PreviewTypography extends PureComponent {
 
     render() {
         return (
-            <div>
+            <section className={this.props.className}>
                 {Object.keys(this.props.typography).map(presetName => (
                     <div key={`preview-typograph-${presetName}`}>
                         <span
@@ -32,7 +32,7 @@ class PreviewTypography extends PureComponent {
                         </span>
                     </div>
                 ))}
-            </div>
+            </section>
         );
     }
 }

@@ -5,7 +5,7 @@ import { getFromObject } from "../utils/getFromObject";
 class PreviewColors extends PureComponent {
     render() {
         return (
-            <section className="preview__colors">
+            <section className={this.props.className}>
                 <div className="preview__colors--color">
                     {getFromObject(this.props.colors, [
                         "brand",

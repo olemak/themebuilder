@@ -11,7 +11,7 @@ class Preview extends Component {
                 <p>Click the tabs (color, fonts etc.) to change your theme.</p>
                 <div className="preview">
                     <PreviewColors
-                        className="preview__color"
+                        className="preview__colors"
                         colors={this.props.colors}
                     />
 
