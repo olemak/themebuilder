@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./spacing.css";
-import "./sizes.css";
+//import "./sizes.css";
 
 function Size({ name, value, changeSize, prev, next }) {
     return (
