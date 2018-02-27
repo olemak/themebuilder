@@ -4,6 +4,7 @@ import routes from "./routes/routes.js";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import themebuilder from "./reducers/reducers";
+import { RootStyleContainer } from "./components/RootStyleContainer";
 
 import "./App.css";
 
@@ -18,6 +19,7 @@ class App extends Component {
             <Provider store={store}>
                 <Router>
                     <div className="Themebuilder">
+                        <RootStyleContainer />
                         <header className="Header">
                             <h2>
                                 Themebuilder |{" "}
@@ -43,7 +45,6 @@ class App extends Component {
                                 ))}
                             </nav>
                         </header>
-
                         <main>
                             {routes().map(route => (
                                 <Route

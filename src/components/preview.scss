@@ -3,10 +3,16 @@
     flex-flow: row wrap;
     justify-content: space-between;
 
+    &__colors,
+    &__typography,
+    &__sizes {
+        flex: 1 1 30%;
+        min-width: 300px;
+        width: 100%;
+        max-width: 500px;
+    }
+
     &__colors {
-        flex: 1 1 auto;
-        width: 320px;
-        max-width: 30%;
         display: flex;
         flex-flow: column nowrap;
         &--color,
@@ -14,14 +20,16 @@
         &--functional {
             display: flex;
             flex-flow: row wrap;
-            justify-content: space-between;
+            justify-content: space-around;
             margin-bottom: 1em;
         }
     }
 
     &__color {
-        width: 5em;
-        height: 5em;
+        width: 20vw;
+        max-width: 140px;
+        height: 20vw;
+        max-height: 140px;
         border-radius: 50%;
         display: flex;
         justify-content: center;
@@ -41,18 +49,9 @@
     }
 
     &__typography {
-        flex: 1 1 auto;
-        width: 320px;
-        max-width: 30%;
         text-align: center;
         display: flex;
         //        justify-content: center;
         flex-flow: column nowrap;
-    }
-
-    &__sizes {
-        flex: 1 1 auto;
-        width: 320px;
-        max-width: 30%;
     }
 }

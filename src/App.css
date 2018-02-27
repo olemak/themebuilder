@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Comfortaa:400,700");
+:root {
+    font-size: calc(1vw + 1vh + 2vmin);
+}
+
 body {
     font-family: "Comfortaa", cursive, serif;
     padding: 0 1vw;
-    font-size: 18px;
-    font-size: calc(18px + 0.4vw);
 }
 
 h1,
