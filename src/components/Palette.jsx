@@ -5,10 +5,6 @@ import React, { Component } from "react";
 // COMPONENTS
 import Color from "./Color.jsx";
 
-// UTILITIES
-import invertColor from "../utils/invertColor.js";
-import shadeColor from "../utils/shadeColor.js";
-
 import "./Palette.css";
 
 class Palette extends Component {
