@@ -17,7 +17,7 @@ function Space({ name, value, changeSpace, prev, next }) {
                 }
             />
             <output className="space__output" htmlFor={`space-${name}`}>
-                {value.toFixed(1)}
+                {typeof value === "number" ? value.toFixed(2) : value}
             </output>
 
             <span className="space__visualisation-wrapper space__visualisation-wrapper--vw">
