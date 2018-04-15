@@ -17,27 +17,13 @@ function Space({ name, value, changeSpace, prev, next }) {
                 }
             />
             <output className="space__output" htmlFor={`space-${name}`}>
-                {value.toFixed(1)}
+                {typeof value === "number" ? value.toFixed(2) : value}
             </output>
-            <span className="space__visualisation-wrapper space__visualisation-wrapper--px">
-                px:{" "}
-                <span
-                    className="space__visualisation space__visualisation--px"
-                    style={{ width: `${value}px` }}
-                />
-            </span>
-            <span className="space__visualisation-wrapper space__visualisation-wrapper--em">
-                em:{" "}
-                <span
-                    className="space__visualisation space__visualisation--em"
-                    style={{ width: `${value}em` }}
-                />
-            </span>
+
             <span className="space__visualisation-wrapper space__visualisation-wrapper--vw">
-                vw*10:{" "}
                 <span
                     className="space__visualisation space__visualisation--vw"
-                    style={{ width: `${value * 10}vw` }}
+                    style={{ width: `${value}em`, height: `${value}em` }}
                 />
             </span>
         </div>
@@ -47,13 +33,7 @@ function Space({ name, value, changeSpace, prev, next }) {
 class Spacing extends Component {
     paint(spacing) {
         let spaces = [];
-        let values = [
-            spacing.tiny,
-            spacing.small,
-            spacing.medium,
-            spacing.large,
-            spacing.huge
-        ];
+        let values = Object.values(spacing);
         let i = 0;
         for (const space in spacing) {
             spaces.push(
@@ -61,7 +41,7 @@ class Spacing extends Component {
                     name={space}
                     value={this.props.spacing[space]}
                     changeSpace={this.props.changeSpacing}
-                    prev={i === 0 ? 0.2 : values[i - 1]}
+                    prev={i === 0 ? 0.1 : values[i - 1]}
                     index={`index:${i} values.length:${values.length}`}
                     next={i === values.length - 1 ? 10 : values[++i]}
                     key={`space-${space}`}

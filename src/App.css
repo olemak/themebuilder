@@ -1,6 +1,17 @@
 @import url("https://fonts.googleapis.com/css?family=Comfortaa:400,700");
+
 :root {
-    font-size: calc(1vw + 1vh + 2vmin);
+    font-size: calc(16px + ((1vw - 4.4px) * 1.6));
+}
+@media screen and (max-width: 440px) {
+    :root {
+        font-size: 16px;
+    }
+}
+@media screen and (min-width: 1440px) {
+    :root {
+        font-size: 32px;
+    }
 }
 
 body {

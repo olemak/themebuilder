@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import ColorVariation from "./ColorVariation";
 
 // UTILITIES
-import invertColor from "../utils/invertColor.js";
 import shadeColor from "../utils/shadeColor.js";
 
 import "./Color.css";
@@ -13,11 +12,6 @@ class Color extends Component {
             nextProps.color.value &&
             this.props.color.value !== nextProps.color.value
         ) {
-            this.props.handleColorChange(
-                this.props.name,
-                "contrast",
-                invertColor(nextProps.color.value)
-            );
             this.props.handleColorChange(
                 this.props.name,
                 "light",
