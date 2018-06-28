@@ -1,11 +1,10 @@
 [
     {
-        "id": "main",
-        "name": "Main Header",
+        "id": "title",
+        "name": "h1: Title",
         "sample": "Motorcyclist's handgloves",
         "intro": "Your typical H1.",
-        "description":
-            "Semantically, the most important thing on the \"page\". SEO tip: only one main header per page; this is most often used for the \"Name of the page\".",
+        "description": "Just one per page",
         "default": {
             "font": "main",
             "size": "huge",
@@ -13,8 +12,8 @@
         }
     },
     {
-        "id": "support",
-        "name": "Support Header",
+        "id": "headline",
+        "name": "h2: Main Headline",
         "sample": "Motorcyclist's handgloves",
         "intro": "Classic \"H2\". ",
         "description": "Often used for article titles or sub-title.",
@@ -26,10 +25,10 @@
     },
     {
         "id": "subheader",
-        "name": "Sub-header",
+        "name": "h3: Sub-header",
         "sample": "Motorcyclist's handgloves",
         "intro": "Usually a \"H3\".",
-        "description": "Often used to divide blocks paragraphs.",
+        "description": "Often used to divide paragraphs.",
         "default": {
             "font": "support",
             "size": "large",
